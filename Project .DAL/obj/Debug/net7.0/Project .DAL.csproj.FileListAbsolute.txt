@@ -1,0 +1,15 @@
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\bin\Debug\net7.0\Project .DAL.deps.json
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\bin\Debug\net7.0\Project .DAL.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\bin\Debug\net7.0\Project .DAL.pdb
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.AssemblyInfoInputs.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.AssemblyInfo.cs
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.csproj.CoreCompileInputs.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\refint\Project .DAL.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.pdb
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\ref\Project .DAL.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.csproj.AssemblyReference.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.sourcelink.json
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\bin\Debug\net7.0\Project .DAL.runtimeconfig.json
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .DAL\obj\Debug\net7.0\Project .DAL.genruntimeconfig.cache

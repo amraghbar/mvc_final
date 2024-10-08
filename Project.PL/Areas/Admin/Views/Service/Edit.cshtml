@@ -1,0 +1,62 @@
+﻿@model ServiceEditVM
+
+@section Header {
+    <h2>Edit Service</h2>
+}
+
+<div class="col-md-12">
+    <div>
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">General</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" asp-controller="Service" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Name">Service Name</label>
+                        <input asp-for="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Service Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image">Upload New Image</label>
+
+                        @if (!string.IsNullOrWhiteSpace(Model.ImageName))
+                        {
+                            <div>
+                                <img src="@Url.Content("~/files/images/" + Model.ImageName)" alt="Current Image" style="max-width: 200px; max-height: 200px;" class="img-thumbnail mb-2" />
+                                <small class="form-text text-muted">Current Image</small>
+                            </div>
+                        }
+
+                        <input type="file" asp-for="Image" class="form-control-file" />
+                        <small class="form-text text-muted">Please upload an image file.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status</label><br />
+                        <div class="form-check">
+                            <input type="radio" asp-for="IsDeleted" value="false" class="form-check-input" />
+                            <label class="form-check-label">Active</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" asp-for="IsDeleted" value="true" class="form-check-input" />
+                            <label class="form-check-label">Deleted</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <a asp-controller="Service" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
