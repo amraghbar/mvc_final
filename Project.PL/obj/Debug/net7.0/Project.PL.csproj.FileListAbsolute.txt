@@ -269,3 +269,4 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Mo
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\libman.json

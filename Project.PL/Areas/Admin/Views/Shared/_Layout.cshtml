@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <partial name="_header" />
+    @RenderSection("Css", required: false)
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -68,6 +69,8 @@
 
 <!-- REQUIRED SCRIPTS -->
     <partial name="_script" />
+    @RenderSection("Js", required: false)
+
 
 </body>
 </html>

@@ -4,6 +4,7 @@
     <h2>Edit Service</h2>
 }
 
+
 <div class="col-md-12">
     <div>
         <div class="card card-primary">
@@ -27,18 +28,8 @@
                         <textarea asp-for="Description" class="form-control" rows="4"></textarea>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Image">Upload New Image</label>
-
-                        @if (!string.IsNullOrWhiteSpace(Model.ImageName))
-                        {
-                            <div>
-                                <img src="@Url.Content("~/files/images/" + Model.ImageName)" alt="Current Image" style="max-width: 200px; max-height: 200px;" class="img-thumbnail mb-2" />
-                                <small class="form-text text-muted">Current Image</small>
-                            </div>
-                        }
-
-                        <input type="file" asp-for="Image" class="form-control-file" />
-                        <small class="form-text text-muted">Please upload an image file.</small>
+                        <label asp-for="Image"> </label>
+                        <input asp-for="Image" class="form-control-file">
                     </div>
 
                     <div class="form-group">

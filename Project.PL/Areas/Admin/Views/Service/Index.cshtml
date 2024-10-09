@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<ServiceVM>
-
+@section Css {
+    <link href="~/lib/datatables/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+}
 @section Header {
     <h2>Service Management</h2>
 }
+
 
 <div class="mb-3">
     <a class="btn btn-primary text-white" asp-area="Admin" asp-controller="Service" asp-action="Create">
@@ -48,3 +51,15 @@
         </div>
     </div>
 </div>
+
+@section Js {
+	<script src="~/lib/datatables/js/jquery.datatables.min.js"></script>
+	<script src="~/lib/datatables/js/datatables.bootstrap4.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('table').DataTable();
+        });
+    </script>
+ }

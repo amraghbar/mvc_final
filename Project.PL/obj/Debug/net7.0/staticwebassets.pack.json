@@ -8229,20 +8229,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\1c19a1c1-28dd-45f2-9922-634d066ccd6dbc0423f5-26fd-45a4-a63f-8d877d95b58e.jpg",
-      "PackagePath": "staticwebassets\\files\\images\\1c19a1c1-28dd-45f2-9922-634d066ccd6dbc0423f5-26fd-45a4-a63f-8d877d95b58e.jpg"
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\2490f0ba-ff8a-43d5-955c-8b425bfad1555438220567686801372.jpg",
+      "PackagePath": "staticwebassets\\files\\images\\2490f0ba-ff8a-43d5-955c-8b425bfad1555438220567686801372.jpg"
     },
     {
-      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\801afa25-5b29-41a9-9216-1ce9573b0a27bc0423f5-26fd-45a4-a63f-8d877d95b58e.jpg",
-      "PackagePath": "staticwebassets\\files\\images\\801afa25-5b29-41a9-9216-1ce9573b0a27bc0423f5-26fd-45a4-a63f-8d877d95b58e.jpg"
-    },
-    {
-      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\d9016fae-f34e-4299-9922-1b92f9a476b8IMG_7264.JPG",
-      "PackagePath": "staticwebassets\\files\\images\\d9016fae-f34e-4299-9922-1b92f9a476b8IMG_7264.JPG"
-    },
-    {
-      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\ddce6eaa-a494-4b37-90da-7a18f395409dbc0423f5-26fd-45a4-a63f-8d877d95b58e.jpg",
-      "PackagePath": "staticwebassets\\files\\images\\ddce6eaa-a494-4b37-90da-7a18f395409dbc0423f5-26fd-45a4-a63f-8d877d95b58e.jpg"
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\d8984a6c-efe9-4e31-9b1f-7da183b0c4e6Gold Elegant Beauty Care Logo (1).png",
+      "PackagePath": "staticwebassets\\files\\images\\d8984a6c-efe9-4e31-9b1f-7da183b0c4e6Gold Elegant Beauty Care Logo (1).png"
     },
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\js\\.eslintrc.json",
@@ -8463,6 +8455,18 @@
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\datatables\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\lib\\datatables\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\datatables\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\lib\\datatables\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\datatables\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\lib\\datatables\\js\\jquery.dataTables.min.js"
     },
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
