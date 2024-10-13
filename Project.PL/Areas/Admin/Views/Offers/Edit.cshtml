@@ -1,0 +1,148 @@
+﻿@model OffersEditVM
+
+@section Header {
+    <h2>Edit Blog Post</h2>
+}
+
+<div class="col-md-12">
+    <div>
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">General</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="Offerss" asp-action="Edit" asp-controller="Offers" enctype="multipart/form-data">
+                    <!-- Blog Name -->
+                    <div class="form-group">
+                        <label asp-for="Name">Blog Title</label>
+                        <input asp-for="Name" class="form-control" id="Name" />
+                    </div>
+
+                    <!-- Blog Description -->
+                    <div class="form-group">
+                        <label asp-for="Description">Blog Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" id="Description"></textarea>
+                    </div>
+
+                 
+
+                    <!-- Hidden Field for ImageName -->
+                    <input type="hidden" asp-for="ImageName" value="@Model.ImageName" />
+
+                    <!-- Upload Image -->
+                    <div class="form-group">
+                        <label asp-for="Image">Upload Image</label>
+                        <input asp-for="Image" class="form-control-file" id="Image">
+                    </div>
+
+                    <!-- Blog Status -->
+                    <div class="form-group">
+                        <label>Status</label><br />
+                        <div class="form-check">
+                            <input type="radio" asp-for="IsDeleted" value="false" class="form-check-input" />
+                            <label class="form-check-label">Active</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" asp-for="IsDeleted" value="true" class="form-check-input" />
+                            <label class="form-check-label">Deleted</label>
+                        </div>
+                    </div>
+
+                    <!-- Submit and Cancel Buttons -->
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+
+                    <a asp-controller="Offers" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </form>
+
+                <!-- Error Summary -->
+                <div id="error-summary" style="display:none;" class="alert alert-danger"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Js {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tiny.cloud/1/5nz6dzal6xfpv28dogyisj9tz702ufv9g476iagjagt4ligx/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: [
+                // Core editing features
+                'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                // Your account includes a free trial of TinyMCE premium features
+                // Try the most popular premium features until Oct 27, 2024:
+                'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+            ],
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+        });
+        $(document).ready(function () {
+            $('#Offerss').on('submit', function (e) {
+                e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+
+                var formData = new FormData(this);
+                console.log(...formData); // عرض القيم المرسلة
+
+                $.ajax({
+                    url: '@Url.Action("Edit", "Offers")', // URL للطلب
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.success) {
+                            // عرض رسالة نجاح
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Service updated successfully!',
+                                showConfirmButton: false,
+                                timer: 1000
+                            }).then(function () {
+                                // إعادة التوجيه إلى صفحة الفهرس بعد اختفاء الرسالة
+                                window.location.href = '@Url.Action("Index", "Offers")';
+                            });
+                        } else {
+                            // عرض رسائل الخطأ
+                            $('#error-summary').show();
+                            $('#error-summary').html('');
+                            $.each(response.errors, function (index, value) {
+                                $('#error-summary').append('<p>' + value + '</p>');
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // معالجة الخطأ
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Failed to update service. Please try again.',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+}

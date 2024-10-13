@@ -1,0 +1,70 @@
+﻿@model NewProductDetailsVM
+
+@section Header {
+    Details NewProduct
+}
+
+
+<div class="col-md-12">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">@Model.Name</h3>
+
+                <div class="card-tools">
+                    <form method="get" action="@Url.Action("Index", "NewProducts")">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>IsDeleted</th>
+                            <th>CreatedAt</th>
+                            <th>Before Price</th>
+                            <th>
+                                After Price
+                            </th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.Description</td>
+                            <td>@(Model.IsDeleted ? "Is Deleted" : "Active")</td>
+                            <td>@Model.CreatedAt.ToString("MM/dd/yyyy hh:mm tt")</td>
+                            <td>@Model.Be_Price</td>
+                            <td>@Model.Af_Price</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(Model.ImageName))
+                                {
+                                    <img src="~/files/images/@Model.ImageName" width="50px" alt="@Model.Name" />
+                                }
+                                else
+                                {
+                                    <img src="~/files/images/placeholder.png" width="50px" alt="No Image" />
+                                }
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Index Button -->
+    <div class="mt-3">
+        <a asp-controller="NewProducts" asp-action="Index" class="btn btn-secondary">Back to Index</a>
+    </div>
+</div>

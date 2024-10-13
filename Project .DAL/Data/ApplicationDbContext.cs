@@ -12,5 +12,13 @@ namespace Project.DAl.Data
         }
 
         public DbSet<Service> Services { get; set; }
+        public DbSet<NewProd> NewProducts { get; set; }
+        public DbSet<latest> Latests { get; set; }
+        public DbSet<Inspired> Inspireds { get; set; }
+        public DbSet<Featured> Featureds { get; set; }
+
+        public DbSet<Offer> Offerss { get; set; }
+
+
     }
 }

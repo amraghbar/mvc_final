@@ -24,10 +24,43 @@
 
   <ItemGroup>
     <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\Project\img\.DS_Store" />
+    <None Include="wwwroot\Project\img\blog\.DS_Store" />
+    <None Include="wwwroot\Project\img\product\.DS_Store" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\files\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Featureds\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\Admin\Views\Featureds\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\Admin\Views\Featureds\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Admin\Views\Featureds\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Admin\Views\Featureds\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Admin\Views\Featureds\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\Admin\Views\Featureds\Delete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\Admin\Views\Featureds\Details.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\Admin\Views\Featureds\Edit.cshtml" />
   </ItemGroup>
 
 </Project>

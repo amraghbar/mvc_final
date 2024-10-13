@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="~/Admin/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Amr Aghbar</span>
     </a>
 
     <!-- Sidebar -->
@@ -36,80 +36,79 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Starter Pages
+                            Home Page
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
+                            <a asp-area="Admin" asp-controller="Service" asp-action="Index" class="nav-link">
+                                <i class="nav-icon  fa fa-hands-helping"></i>
+                                <p>
+                                    Service
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
                             </a>
+
+
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
+                            <a asp-area="Admin" asp-controller="Featureds" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fa fa-star"></i>
+                                <p>
+                                    Featured product
+                                </p>
                             </a>
+
+
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="Offers" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fa fa-percent"></i>
+
+                                <p>
+Offers                                </p>
+                            </a>
+
+
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="NewProducts" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fa fa-tags"></i>
+
+                                <p>
+                                    new products
+                                </p>
+                            </a>
+
+
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="InspiredProducts" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fa fa-lightbulb"></i>
+                                <p>
+                                    Inspired products
+                                </p>
+                            </a>
+
+
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="LatestBlogs" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fa fa-pen"></i>
+                                <p>
+                                    latest blog
+
+                                </p>
+                            </a>
+
+
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a asp-area="Admin" asp-controller="Service" asp-action="Index" class="nav-link">
-                        <i class="nav-icon  fa fa-hands-helping"></i>
-                        <p>
-                            Service
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                   
-
-                </li>
-                <li class="nav-item">
-                    <a asp-area="Admin" asp-controller="Featureds" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fa fa-star"></i>
-                        <p>
-                            Featured product
-                        </p>
-                    </a>
-
-
-                </li>
-                <li class="nav-item">
-                    <a asp-area="Admin" asp-controller="NewProducts" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fa fa-tags"></i>
-
-                        <p>
-                            new products
-                        </p>
-                    </a>
-
-
-                </li>
-                <li class="nav-item">
-                    <a asp-area="Admin" asp-controller="InspiredProducts" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fa fa-lightbulb"></i>
-                        <p>
-                            Inspired products
-                        </p>
-                    </a>
-
-
-                </li>
-                <li class="nav-item">
-                    <a asp-area="Admin" asp-controller="LatestBlogs" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fa fa-pen"></i>
-                        <p>
-                            latest blog
-
-                        </p>
-                    </a>
-
-
-                </li>
+              
 
             </ul>
         </nav>

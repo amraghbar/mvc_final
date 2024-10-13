@@ -1,0 +1,149 @@
+﻿@model FeaturedEditVM
+
+@section Header {
+    <h2>Featured Service</h2>
+}
+
+<div class="col-md-12">
+    <div>
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">General</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="Featured" asp-action="Edit" asp-controller="Featureds" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Name">Service Name</label>
+                        <input asp-for="Name" class="form-control" id="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Service Description</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" id="Description"></textarea>
+                    </div>
+                    <input type="hidden" asp-for="ImageName" value="@Model.ImageName" />
+
+                    <div class="form-group">
+                        <label asp-for="Image">Upload Image</label>
+                        <input asp-for="Image" class="form-control-file" id="Image">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status</label><br />
+                        <div class="form-check">
+                            <input type="radio" asp-for="IsDeleted" value="false" class="form-check-input" />
+                            <label class="form-check-label">Active</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" asp-for="IsDeleted" value="true" class="form-check-input" />
+                            <label class="form-check-label">Deleted</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <a asp-controller="Featureds" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </form>
+                <div id="error-summary" style="display:none;" class="alert alert-danger"></div> <!-- Add error summary div -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Js {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tiny.cloud/1/5nz6dzal6xfpv28dogyisj9tz702ufv9g476iagjagt4ligx/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: [
+                // Core editing features
+                'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                // Your account includes a free trial of TinyMCE premium features
+                // Try the most popular premium features until Oct 27, 2024:
+                'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+            ],
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+        });
+        $(document).ready(function () {
+            $('#Featured').on('submit', function (e) {
+                e.preventDefault();
+
+                // Check for empty fields
+                var name = $('#Name').val().trim();
+                var description = $('#Description').val().trim();
+                var image = $('#Image').val();
+
+                if (!name || !description || !image) {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        icon: 'warning',
+                        title: 'Please fill out all fields!',
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                    return; // Stop form submission
+                }
+
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: '@Url.Action("Edit", "Featureds")',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response.success) {
+                            // Success Toast
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Product updated successfully!',
+                                showConfirmButton: false,
+                                timer: 1000
+                            }).then(function () {
+                                // Redirect to Index page after the toast disappears
+                                window.location.href = '@Url.Action("Index", "Featureds")';
+                            });
+                        } else {
+                            // Display error messages
+                            $('#error-summary').show();
+                            $('#error-summary').html('');
+                            $.each(response.errors, function (index, value) {
+                                $('#error-summary').append('<p>' + value + '</p>');
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // Handle error
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Failed to update product. Please try again.',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>
+}
