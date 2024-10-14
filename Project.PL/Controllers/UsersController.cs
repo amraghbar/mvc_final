@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Project.DAl.Data;
 using Project.PL.Models;
-using Project.PL.ViewModels;
 using Project_.DAL.Models;
 
 namespace Project.PL.Controllers
@@ -40,21 +40,41 @@ namespace Project.PL.Controllers
         }
 
 
-        public IActionResult Details(int id)
+
+        public IActionResult Details(string modelName, int id)
         {
-            var product = context.Featureds.FirstOrDefault(p => p.Id == id)
-                          ?? context.NewProducts.FirstOrDefault(p => p.Id == id)
-                          ?? context.Inspireds.FirstOrDefault(p => p.Id == id);
+            object? product = null; 
+
+            if (modelName == "Inspireds")
+            {
+                product = context.Inspireds.FirstOrDefault(p => p.Id == id); 
+            }
+            else if (modelName == "Featureds")
+            {
+                product = context.Featureds.FirstOrDefault(p => p.Id == id);
+            }
+            else if (modelName == "NewProducts")
+            {
+                product = context.NewProducts.FirstOrDefault(p => p.Id == id);
+            }
+            else
+            {
+                return NotFound();
+            }
 
             if (product == null)
             {
-                return NotFound(); // إذا لم يتم العثور على المنتج
+                return NotFound(); // تحقق من أن المنتج موجود
             }
 
-            var productViewModel = mapper.Map<ProductDetailsViewModel>(product);
+            ViewBag.Product = product;
 
-            return View(productViewModel);
+            return View();
         }
+
+
+
+
 
 
 

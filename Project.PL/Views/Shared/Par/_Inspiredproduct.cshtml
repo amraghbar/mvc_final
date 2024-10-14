@@ -22,10 +22,11 @@
                         <div class="product-img">
                             <img class="img-fluid w-100" src="~/files/images/@item.ImageName" alt="@item.Name" />
                             <div class="p_icon">
-                                    <a href="@Url.Action("Details", "Users", new { id = item.Id })">
+                                    
+                                    <a asp-action="Details" asp-controller="Users" asp-route-modelName="Inspireds" asp-route-id="@item.Id">
                                         <i class="ti-eye"></i>
                                     </a>
-
+                                   
                                 <a href="#">
                                     <i class="ti-heart"></i>
                                 </a>

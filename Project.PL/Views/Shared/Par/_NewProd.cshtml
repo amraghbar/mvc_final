@@ -38,9 +38,11 @@
                         <div class="product-img">
                             <img class="img-fluid w-100" src="~/files/images/@product.ImageName" alt="" />
                             <div class="p_icon">
-<a href="@Url.Action("Details", "Users", new { id = product.Id })">
-    <i class="ti-eye"></i>
-</a>
+                           
+                                 <a asp-action="Details" asp-controller="Users" asp-route-modelName="NewProducts" asp-route-id="@product.Id">
+                                 <i class="ti-eye"></i>
+                                  </a>
+                                   
                                 <a href="#"><i class="ti-heart"></i></a>
                                 <a href="#"><i class="ti-shopping-cart"></i></a>
                             </div>
