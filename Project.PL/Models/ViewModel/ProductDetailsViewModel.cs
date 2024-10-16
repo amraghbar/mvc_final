@@ -1,4 +1,4 @@
-﻿namespace Project.PL.ViewModels
+﻿namespace Project.PL.Models.ViewModel
 {
     public class ProductDetailsViewModel
     {

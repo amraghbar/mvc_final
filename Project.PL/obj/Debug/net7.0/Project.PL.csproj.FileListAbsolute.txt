@@ -1,11 +1,24 @@
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.csproj.AssemblyReference.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.AssemblyInfoInputs.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.AssemblyInfo.cs
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.csproj.CoreCompileInputs.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.RazorAssemblyInfo.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.RazorAssemblyInfo.cs
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.sourcelink.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\appsettings.json
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\libman.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project.PL.staticwebassets.runtime.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project.PL.exe
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project.PL.deps.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project.PL.runtimeconfig.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project.PL.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project.PL.pdb
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Humanizer.dll
@@ -33,8 +46,10 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Mi
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.DotNet.Scaffolding.Shared.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
@@ -57,6 +72,7 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Mi
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\NuGet.Common.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\NuGet.Configuration.dll
@@ -67,6 +83,7 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Nu
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\NuGet.ProjectModel.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\NuGet.Protocol.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\NuGet.Versioning.dll
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\System.Composition.AttributedModel.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\System.Composition.Convention.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\System.Composition.Hosting.dll
@@ -236,15 +253,6 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Pr
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project .DAL.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project .BLL.pdb
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Project .DAL.pdb
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.csproj.AssemblyReference.cache
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.AssemblyInfoInputs.cache
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.AssemblyInfo.cs
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.csproj.CoreCompileInputs.cache
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.RazorAssemblyInfo.cache
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.RazorAssemblyInfo.cs
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\staticwebassets\msbuild.Project.PL.Microsoft.AspNetCore.StaticWebAssets.props
@@ -252,6 +260,7 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\st
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Project.PL.props
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Project.PL.props
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\scopedcss\bundle\Project.PL.styles.css
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\scopedcss\projectbundle\Project.PL.bundle.scp.css
@@ -261,12 +270,3 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\re
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.pdb
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.genruntimeconfig.cache
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\ref\Project.PL.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\obj\Debug\net7.0\Project.PL.sourcelink.json
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\Mono.TextTemplating.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\System.CodeDom.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\AutoMapper.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project.PL\bin\Debug\net7.0\libman.json

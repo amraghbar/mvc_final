@@ -43,11 +43,11 @@ namespace Project.PL.Controllers
 
         public IActionResult Details(string modelName, int id)
         {
-            object? product = null; 
+            object? product = null;
 
             if (modelName == "Inspireds")
             {
-                product = context.Inspireds.FirstOrDefault(p => p.Id == id); 
+                product = context.Inspireds.FirstOrDefault(p => p.Id == id);
             }
             else if (modelName == "Featureds")
             {
@@ -68,9 +68,11 @@ namespace Project.PL.Controllers
             }
 
             ViewBag.Product = product;
+            ViewBag.ModelName = modelName; // تمرير نوع النموذج أيضا لعرضه في العرض أو إرساله لاحقًا
 
             return View();
         }
+
 
 
 

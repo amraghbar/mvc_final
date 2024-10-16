@@ -8,9 +8,9 @@ C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .BLL.AssemblyInfoInputs.cache
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .BLL.AssemblyInfo.cs
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .BLL.csproj.CoreCompileInputs.cache
+C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .BLL.sourcelink.json
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .259D6E99.Up2Date
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .BLL.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\refint\Project .BLL.dll
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .BLL.pdb
 C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\ref\Project .BLL.dll
-C:\Users\USER-Q\Documents\asp\mvc\Project\Project\Project .BLL\obj\Debug\net7.0\Project .BLL.sourcelink.json

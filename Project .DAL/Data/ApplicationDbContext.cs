@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Project_.DAL.Models;
-
 namespace Project.DAl.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
-    {
+	
+	public class ApplicationDbContext : IdentityDbContext
+	{
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -18,7 +18,8 @@ namespace Project.DAl.Data
         public DbSet<Featured> Featureds { get; set; }
 
         public DbSet<Offer> Offerss { get; set; }
-
-
+        public DbSet<CartItem> CartItems { get; set; }
+         
+       
     }
 }
