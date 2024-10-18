@@ -8,6 +8,8 @@ using Project.PL.Areas.Admin.ViewModels.Offer;
 
 using Project_.DAL.Models;
 using Project.PL.Areas.Admin.ViewModels.Offers;
+using Project.PL.Areas.Admin.ViewModels.Product;
+using Project.PL.Areas.Admin.ViewModels.Item;
 
 namespace Project.PL.Mapping
 {
@@ -59,7 +61,15 @@ namespace Project.PL.Mapping
             CreateMap<NewProd, CartItem>()
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Af_Price));
+            CreateMap<ProductsFormVM, Product>().ReverseMap();
+            CreateMap<Product, ProductsVM>().ReverseMap();
+            CreateMap<Product, ProductsDetailsVM>().ReverseMap();
+            CreateMap<Product, ProductsEditVM>().ReverseMap();
 
+            CreateMap<ItemFormVM, Item>().ReverseMap();
+            CreateMap<Item, ItemVM>().ReverseMap();
+            CreateMap<Item, ItemDetailsVM>().ReverseMap();
+            CreateMap<Item, ItemEditVM>().ReverseMap();
         }
     }
 }

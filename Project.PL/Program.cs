@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Project.DAl.Data;
-using Project.PL.Models;
 using Project.PL.Mapping;
+using Project_.DAL.Models;
 using System.Reflection;
 
 public class Program
@@ -17,9 +17,13 @@ public class Program
 		builder.Services.AddDbContext<ApplicationDbContext>(options =>
 			options.UseSqlServer(connectionString));
 
-		builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-					.AddEntityFrameworkStores<ApplicationDbContext>();
-		builder.Services.AddControllersWithViews();
+
+		builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+	 .AddEntityFrameworkStores<ApplicationDbContext>()
+	 .AddDefaultUI()
+	 .AddDefaultTokenProviders();
+
+        builder.Services.AddControllersWithViews();
 
 
 		// إضافة خدمات MVC و Razor Pages
@@ -31,18 +35,18 @@ public class Program
 
 		var app = builder.Build();
 
-		// تكوين Pipeline معالجة الطلبات
-		if (app.Environment.IsDevelopment())
-		{
-			app.UseMigrationsEndPoint();
-		}
-		else
-		{
-			app.UseExceptionHandler("/Home/Error");
-			app.UseHsts(); // القيمة الافتراضية لـ HSTS هي 30 يومًا
-		}
+        // تكوين Pipeline معالجة الطلبات
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage(); // لعرض معلومات الأخطاء في حالة التطوير
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts(); // القيمة الافتراضية لـ HSTS هي 30 يومًا
+        }
 
-		app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 		app.UseStaticFiles();
 
 		app.UseRouting();
@@ -64,3 +68,4 @@ public class Program
 		app.Run();
 	}
 }
+
