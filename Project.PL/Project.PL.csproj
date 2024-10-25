@@ -32,6 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Form\css\style.css.map" />
+    <None Include="wwwroot\Form\css\style.scss" />
+    <None Include="wwwroot\Form\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <None Include="wwwroot\Form\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\Project\img\.DS_Store" />
     <None Include="wwwroot\Project\img\blog\.DS_Store" />
@@ -40,7 +44,17 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\ViewModels\Item\" />
+    <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\files\images\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\lib\bootstrap\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
+    <Folder Include="wwwroot\lib\jquery-validation\" />
+    <Folder Include="wwwroot\lib\jquery-validation\dist\" />
+    <Folder Include="wwwroot\lib\jquery\" />
+    <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 
   <ItemGroup>

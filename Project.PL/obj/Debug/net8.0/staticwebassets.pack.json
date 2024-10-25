@@ -8221,6 +8221,62 @@
       "PackagePath": "staticwebassets\\Admin\\plugins\\uplot\\uPlot.min.css"
     },
     {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\css\\style.css",
+      "PackagePath": "staticwebassets\\Form\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\Form\\css\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\css\\style.scss",
+      "PackagePath": "staticwebassets\\Form\\css\\style.scss"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\material-design-iconic-font\\css\\material-design-iconic-font.css",
+      "PackagePath": "staticwebassets\\Form\\fonts\\material-design-iconic-font\\css\\material-design-iconic-font.css"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\material-design-iconic-font\\css\\material-design-iconic-font.min.css",
+      "PackagePath": "staticwebassets\\Form\\fonts\\material-design-iconic-font\\css\\material-design-iconic-font.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.eot",
+      "PackagePath": "staticwebassets\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.eot"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.svg",
+      "PackagePath": "staticwebassets\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.svg"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.ttf",
+      "PackagePath": "staticwebassets\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.ttf"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.woff",
+      "PackagePath": "staticwebassets\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.woff"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.woff2",
+      "PackagePath": "staticwebassets\\Form\\fonts\\material-design-iconic-font\\fonts\\Material-Design-Iconic-Font.woff2"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\poppins\\Poppins-Regular.ttf",
+      "PackagePath": "staticwebassets\\Form\\fonts\\poppins\\Poppins-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\fonts\\poppins\\Poppins-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\Form\\fonts\\poppins\\Poppins-SemiBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\images\\bg-registration-form-1.jpg",
+      "PackagePath": "staticwebassets\\Form\\images\\bg-registration-form-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Form\\images\\registration-form-1.jpg",
+      "PackagePath": "staticwebassets\\Form\\images\\registration-form-1.jpg"
+    },
+    {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\Project\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\Project\\css\\bootstrap.css"
     },
@@ -9053,6 +9109,10 @@
       "PackagePath": "staticwebassets\\files\\images\\24751251-c31f-410f-b042-e185855fac4ctruck.png"
     },
     {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\26709fb1-ce8f-4956-8ee7-e7a4da349257support.png",
+      "PackagePath": "staticwebassets\\files\\images\\26709fb1-ce8f-4956-8ee7-e7a4da349257support.png"
+    },
+    {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\26ca2dd1-6d50-431b-bab7-1aeaf902942eb2.jpg",
       "PackagePath": "staticwebassets\\files\\images\\26ca2dd1-6d50-431b-bab7-1aeaf902942eb2.jpg"
     },
@@ -9117,6 +9177,10 @@
       "PackagePath": "staticwebassets\\files\\images\\503b4a9f-3b75-4d7e-82e4-f3e2e34528efn3.jpg"
     },
     {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\52272385-ca20-43d1-a50e-2ab1199d92d6money-bag.png",
+      "PackagePath": "staticwebassets\\files\\images\\52272385-ca20-43d1-a50e-2ab1199d92d6money-bag.png"
+    },
+    {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\5362b123-47d3-46a5-bbb9-1d67ccbf2e69bitcoin.png",
       "PackagePath": "staticwebassets\\files\\images\\5362b123-47d3-46a5-bbb9-1d67ccbf2e69bitcoin.png"
     },
@@ -9135,6 +9199,10 @@
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\6ee5936f-8886-431d-8141-d1af1057a76an4.jpg",
       "PackagePath": "staticwebassets\\files\\images\\6ee5936f-8886-431d-8141-d1af1057a76an4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\74a687a4-7fc0-4af2-8674-693881694cf8support.png",
+      "PackagePath": "staticwebassets\\files\\images\\74a687a4-7fc0-4af2-8674-693881694cf8support.png"
     },
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\770701a3-3339-4508-a54f-e09f988ce741b2.jpg",
@@ -9411,6 +9479,22 @@
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-theme.min.css.map"
     },
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",

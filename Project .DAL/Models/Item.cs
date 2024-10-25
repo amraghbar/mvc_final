@@ -14,6 +14,7 @@ namespace Project_.DAL.Models
         public string Af_Price { get; set; }
         public string Be_Price { get; set; }
 
+        public string Description { get; set; }
 
         public string ImageName { get; set; }
         public bool IsDeleted { get; set; }

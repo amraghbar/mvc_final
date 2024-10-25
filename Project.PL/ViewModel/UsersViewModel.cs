@@ -1,6 +1,6 @@
-﻿namespace Project.PL.Models.ViewModel
+﻿namespace Project.PL.ViewModel
 {
-    public class UsersViewModel
+	public class UsersViewModel
     {
         public string id { get; set; }
         public string UserName { get; set; }

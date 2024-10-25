@@ -2191,6 +2191,7 @@
       },
       "Project .BLL/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "Project .DAL": "1.0.0"
         },
         "runtime": {

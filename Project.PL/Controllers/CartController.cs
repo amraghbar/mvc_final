@@ -1,67 +1,71 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using Project.DAl.Data;
+using Project_.BLL;
 using Project_.DAL.Models;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 public class CartController : Controller
 {
-    private readonly ApplicationDbContext context;
-    private readonly IMapper mapper;
+    private readonly ApplicationDbContext _context;
+    private readonly UserManager<IdentityUser> _userManager; // استخدام UserManager لإدارة المستخدمين
 
-    public CartController(ApplicationDbContext context, IMapper mapper)
+    public CartController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
     {
-        this.context = context;
-        this.mapper = mapper;
+        _context = context;
+        _userManager = userManager;
     }
 
-    [HttpPost]
-  
-    public IActionResult AddToCart(string modelName, int productId, int quantity)
+    public IActionResult AddToCart(string userId, int productId, int quantity)
     {
-        try
+        var product = _context.Products.FirstOrDefault(p => p.Id == productId && !p.IsDeleted);
+        if (product == null)
         {
-            var userId = GetUserId();
-            object? product = null;
-
-            if (modelName == "Inspireds")
-            {
-                product = context.Inspireds.FirstOrDefault(p => p.Id == productId);
-            }
-            else if (modelName == "Featureds")
-            {
-                product = context.Featureds.FirstOrDefault(p => p.Id == productId);
-            }
-            else if (modelName == "NewProducts")
-            {
-                product = context.NewProducts.FirstOrDefault(p => p.Id == productId);
-            }
-
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            var cartItem = mapper.Map<CartItem>(product);
-            cartItem.Quantity = quantity;
-            cartItem.UserId = userId;
-
-            context.CartItems.Add(cartItem);
-            context.SaveChanges();
-
-            return RedirectToAction("Index", "Cart");
+            return NotFound("Product not found or unavailable.");
         }
-        catch (Exception ex)
+
+        var cart = _context.Carts.Include(c => c.Items)
+                                  .FirstOrDefault(c => c.UserId == userId)
+                     ?? new Cart { UserId = userId };
+
+        var existingItem = cart.Items.FirstOrDefault(i => i.ProductId == productId);
+
+        if (existingItem != null)
         {
-            Console.WriteLine(ex.Message); 
-
-            return StatusCode(500, "Internal Server Error");
+            existingItem.Quantity += quantity;
         }
+        else
+        {
+            var cartItem = new CartItem
+            {
+                ProductId = productId,
+                ProductName = product.Name_Product,
+                Quantity = quantity,
+                Price = (decimal)product.Price,
+            };
+            cart.Items.Add(cartItem);
+        }
+
+        // حفظ السلة في قاعدة البيانات
+        if (_context.Carts.Any(c => c.UserId == userId))
+        {
+            _context.Carts.Update(cart);
+        }
+        else
+        {
+            _context.Carts.Add(cart);
+        }
+
+        _context.SaveChanges();
+        return Ok(); // أو أي نتيجة مناسبة
     }
 
-
-
-    private int GetUserId()
+    public Cart GetCart(string userId)
     {
-        return 1;
+        return _context.Carts.Include(c => c.Items)
+                             .FirstOrDefault(c => c.UserId == userId)
+               ?? new Cart { UserId = userId };
     }
 }

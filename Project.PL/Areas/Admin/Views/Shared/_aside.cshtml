@@ -108,16 +108,33 @@ Offers                                </p>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a asp-area="Admin" asp-controller="Products" asp-action="Index" class="nav-link">
-                        <i class="fa-brands fa-product-hunt">
-                            <p>
-                            Products
-                        </p>
+                        <i class="nav-icon fas fa-box-open"></i>
+                        <p>Products</p>
+                        <i class="right fas fa-angle-left"></i>
+
                     </a>
 
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-area="Admin" asp-controller="Products" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fas fa-box-open"></i>
+                                <p>Products</p>
 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Items" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fas fa-box"></i>
+                                <p>Items</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+
+
                 <li class="nav-item">
 
                     <a href="#" class="nav-link">

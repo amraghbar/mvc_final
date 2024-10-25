@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project.DAl.Data;
-using Project.PL.Models;
+using Project.PL.ViewModel;
 using Project_.DAL.Models;
 
 namespace Project.PL.Controllers

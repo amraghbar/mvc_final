@@ -12,5 +12,8 @@
         public string? ImageName { get; set; }
 
         public DateTime CreatedAt { get; set; }
+        public int? ProductId { get; set; }
+        public string ProductName { get; set; }
+
     }
 }

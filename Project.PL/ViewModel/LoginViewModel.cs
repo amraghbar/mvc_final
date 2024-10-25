@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Project.PL.Models.ViewModel
+namespace Project.PL.ViewModel
 {
-    public class LoginViewModel
+	public class LoginViewModel
     {
         [Required]
         [EmailAddress]

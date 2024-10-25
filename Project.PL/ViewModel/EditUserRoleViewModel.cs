@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Project.PL.Models.ViewModel
+namespace Project.PL.ViewModel
 {
-    public class EditUserRoleViewModel
+	public class EditUserRoleViewModel
     {
         public string Id { get; set; }
 

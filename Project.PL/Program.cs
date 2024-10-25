@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Project.DAl.Data;
 using Project.PL.Mapping;
@@ -61,7 +61,7 @@ public class Program
 
 		app.MapControllerRoute(
 			name: "default",
-			pattern: "{controller=Home}/{action=Index}/{id?}");
+			pattern: "{controller=Users}/{action=Index}/{id?}");
 
 		app.MapRazorPages(); // لجميع صفحات Razor الخاصة بك
 

@@ -1,6 +1,6 @@
-namespace Project.PL.Models
+namespace Project.PL.ViewModel
 {
-    public class ErrorViewModel
+	public class ErrorViewModel
     {
         public string? RequestId { get; set; }
 

@@ -70,6 +70,7 @@ namespace Project.PL.Mapping
             CreateMap<Item, ItemVM>().ReverseMap();
             CreateMap<Item, ItemDetailsVM>().ReverseMap();
             CreateMap<Item, ItemEditVM>().ReverseMap();
+
         }
     }
 }

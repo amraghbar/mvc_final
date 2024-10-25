@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Project_.DAL.Models;
 
-namespace Project.PL.Models
+namespace Project.PL.ViewModel
 {
     public class CombinedViewModel
     {

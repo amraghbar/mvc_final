@@ -68,8 +68,7 @@ namespace Project.PL.Areas.Admin.Controllers
 
 			var InspiredProduVM = mapper.Map<Item>(vm);
 			InspiredProduVM.ProductId = vm.ProductsId; // تأكد من تعيين ProductsId
-			context.Add(InspiredProduVM);
-
+			
 			context.Add(InspiredProduVM);
             context.SaveChanges();
             return RedirectToAction(nameof(Index));
@@ -79,14 +78,23 @@ namespace Project.PL.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            var Inspired = context.Items.Find(id);
-            if (Inspired == null)
+            var item = context.Items.Find(id);
+            if (item == null)
             {
                 return NotFound();
             }
 
-            return View(mapper.Map<ItemDetailsVM>(Inspired));
+            var product = context.Products.Find(item.ProductId);
+            string productName = product != null ? product.Name_Product : "Unknown Product";
+
+            var itemDetailsVM = mapper.Map<ItemDetailsVM>(item);
+            itemDetailsVM.ProductName = productName; // تعيين اسم المنتج
+
+            return View(itemDetailsVM);
         }
+
+
+
 
         [HttpPost]
         public IActionResult DeleteConfirmation(int id)

@@ -64,16 +64,21 @@ namespace Project.PL.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            // جلب المنتج بناءً على المعرف
-            var product = context.Products.Find(id);
+            var product = context.Products
+                                 .Include(p => p.Items) 
+                                 .FirstOrDefault(p => p.Id == id);
+
             if (product == null)
             {
                 return NotFound();
             }
 
             // تحويل المنتج إلى ProductsDetailsVM
-            return View(mapper.Map<ProductsDetailsVM>(product));
+            var productDetailsVM = mapper.Map<ProductsDetailsVM>(product);
+
+            return View(productDetailsVM);
         }
+
 
 
         [HttpPost]
@@ -116,8 +121,7 @@ namespace Project.PL.Areas.Admin.Controllers
                 return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList() });
             }
 
-            // جلب المنتج بواسطة معرفه
-            var product = await context.Products.FindAsync(model.Id);
+           var product = await context.Products.FindAsync(model.Id);
             if (product == null)
             {
                 return NotFound();

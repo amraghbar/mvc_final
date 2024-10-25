@@ -1,4 +1,5 @@
 ﻿@using Project_.DAL.Models
+@model IEnumerable<CartItem>
 
 @{
     var product = ViewBag.Product; // المنتج المرسل من الـ Controller
@@ -101,7 +102,7 @@
                             </button>
                         </div>
                         <div class="card_area">
-                            <a class="main_btn" href="javascript:addToCart(@(product.Id), document.getElementById('sst').value)">Add to Cart</a>
+                            <a class="main_btn" href="javascript:addToCart(@(product.Id), document.getElementById('sst').value, '@(product is Inspired ? "Inspireds" : (product is Featured ? "Featureds" : "NewProducts"))')">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -122,21 +123,29 @@ else
             qtyInput.value = currentValue + value;
         }
     }
-
-    function addToCart(productId, quantity) {
+    function addToCart(productId, quantity, modelName) {
+        console.log("Adding to cart:", { productId, quantity, modelName });
         $.ajax({
+            type: "POST",
             url: '@Url.Action("AddToCart", "Cart")',
-            type: 'POST',
             data: {
-                ProductId: productId,
-                Quantity: quantity
+                modelName: modelName,
+                productId: productId,
+                quantity: quantity
             },
-            success: function () {
-                alert("Product added to cart!");
+            success: function (response) {
+                console.log("Product added successfully!");
             },
-            error: function () {
-                alert("Error adding product to cart");
+            error: function (xhr, status, error) {
+                console.error("Error adding product to cart: ", error);
+                alert("حدث خطأ أثناء إضافة المنتج إلى السلة. حاول مرة أخرى.");
             }
         });
     }
-</script>
+
+
+
+
+
+
+</script> 
