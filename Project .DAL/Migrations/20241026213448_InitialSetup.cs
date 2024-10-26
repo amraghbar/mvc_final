@@ -5,36 +5,36 @@
 namespace Project_.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class q33 : Migration
+    public partial class InitialSetup : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Author",
-                table: "Latests",
+                name: "Description",
+                table: "Inspireds",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
 
-            migrationBuilder.AddColumn<int>(
-                name: "CommentsCount",
-                table: "Latests",
-                type: "int",
+            migrationBuilder.AddColumn<string>(
+                name: "Description",
+                table: "Featureds",
+                type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: 0);
+                defaultValue: "");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Author",
-                table: "Latests");
+                name: "Description",
+                table: "Inspireds");
 
             migrationBuilder.DropColumn(
-                name: "CommentsCount",
-                table: "Latests");
+                name: "Description",
+                table: "Featureds");
         }
     }
 }

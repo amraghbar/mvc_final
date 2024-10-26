@@ -50,17 +50,7 @@ namespace Project.PL.Mapping
             CreateMap<Offer, OffersDetailsVM>().ReverseMap();
             CreateMap<Offer, OffersEditVM>().ReverseMap();
 
-            CreateMap<Inspired, CartItem>()
-            .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Name))
-            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Af_Price));
-
-            CreateMap<Featured, CartItem>()
-                .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Af_Price));
-
-            CreateMap<NewProd, CartItem>()
-                .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Af_Price));
+           
             CreateMap<ProductsFormVM, Product>().ReverseMap();
             CreateMap<Product, ProductsVM>().ReverseMap();
             CreateMap<Product, ProductsDetailsVM>().ReverseMap();

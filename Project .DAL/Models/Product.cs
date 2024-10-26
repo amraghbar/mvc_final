@@ -1,5 +1,4 @@
-﻿using Project_.DAL.Migrations;
-using Project_.DAL.Models;
+﻿using Project_.DAL.Models;
 using System;
 using System.Collections.Generic;
 

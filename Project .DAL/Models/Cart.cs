@@ -1,14 +1,17 @@
-﻿namespace Project_.DAL.Models
+﻿using Project.DAl.Data;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Project_.DAL.Models
 {
     public class Cart
     {
-        public int Id { get; set; }
+        public int CartId { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-        public string UserId { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserId { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
-
-        public List<CartItem> Items { get; set; } = new List<CartItem>();
+        public IList<CartItem> CartItem { get; set; } = new List<CartItem>();
     }
 }
 

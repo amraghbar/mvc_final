@@ -1,71 +1,140 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Project.DAl.Data;
-using Project_.BLL;
 using Project_.DAL.Models;
-using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 public class CartController : Controller
 {
-    private readonly ApplicationDbContext _context;
-    private readonly UserManager<IdentityUser> _userManager; // استخدام UserManager لإدارة المستخدمين
+    private readonly UserManager<ApplicationUser> userManager;
+    private readonly ApplicationDbContext context;
 
-    public CartController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+    public CartController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
     {
-        _context = context;
-        _userManager = userManager;
+        this.userManager = userManager;
+        this.context = context;
     }
 
-    public IActionResult AddToCart(string userId, int productId, int quantity)
+    public async Task<IActionResult> Index()
     {
-        var product = _context.Products.FirstOrDefault(p => p.Id == productId && !p.IsDeleted);
+        var user = await userManager.GetUserAsync(User);
+        if (user is null)
+        {
+            return RedirectToAction("Login", "Accounts");
+        }
+
+        var cart = await context.Carts
+            .Include(c => c.CartItem)
+            .ThenInclude(ci => ci.Product)
+            .FirstOrDefaultAsync(c => c.ApplicationUserId == user.Id);
+
+        if (cart == null)
+        {
+            cart = new Cart { ApplicationUserId = user.Id };
+            context.Carts.Add(cart);
+            await context.SaveChangesAsync();
+        }
+
+        return View(cart);
+    }
+
+    public async Task<IActionResult> Add(int Id)
+    {
+        var user = await userManager.GetUserAsync(User);
+        if (user is null)
+        {
+            return RedirectToAction("Login", "Accounts");
+        }
+
+        var product = await context.Featureds.FindAsync(Id);
         if (product == null)
         {
-            return NotFound("Product not found or unavailable.");
+            return NotFound("Product not found.");
         }
 
-        var cart = _context.Carts.Include(c => c.Items)
-                                  .FirstOrDefault(c => c.UserId == userId)
-                     ?? new Cart { UserId = userId };
+        var cart = await context.Carts
+            .Include(c => c.CartItem)
+            .FirstOrDefaultAsync(c => c.ApplicationUserId == user.Id);
 
-        var existingItem = cart.Items.FirstOrDefault(i => i.ProductId == productId);
-
-        if (existingItem != null)
+        if (cart == null)
         {
-            existingItem.Quantity += quantity;
+            cart = new Cart { ApplicationUserId = user.Id };
+            context.Carts.Add(cart);
+            await context.SaveChangesAsync();
         }
-        else
+
+        var cartItem = cart.CartItem.FirstOrDefault(ci => ci.ProductId == Id);
+        if (cartItem == null)
         {
-            var cartItem = new CartItem
+            cartItem = new CartItem
             {
-                ProductId = productId,
-                ProductName = product.Name_Product,
-                Quantity = quantity,
-                Price = (decimal)product.Price,
+                CartId = cart.CartId,
+                ProductId = Id,
+                Quantity = 1
             };
-            cart.Items.Add(cartItem);
-        }
-
-        // حفظ السلة في قاعدة البيانات
-        if (_context.Carts.Any(c => c.UserId == userId))
-        {
-            _context.Carts.Update(cart);
+            context.CartItems.Add(cartItem);
         }
         else
         {
-            _context.Carts.Add(cart);
+            cartItem.Quantity++;
+            context.CartItems.Update(cartItem);
         }
-
-        _context.SaveChanges();
-        return Ok(); // أو أي نتيجة مناسبة
+        await context.SaveChangesAsync();
+        return RedirectToAction("Index");
     }
 
-    public Cart GetCart(string userId)
+    public IActionResult Decrease(int cartItemId)
     {
-        return _context.Carts.Include(c => c.Items)
-                             .FirstOrDefault(c => c.UserId == userId)
-               ?? new Cart { UserId = userId };
+        var cartItem = context.CartItems.FirstOrDefault(ci => ci.CartItemId == cartItemId);
+
+        if (cartItem == null)
+        {
+            return NotFound("CartItem not found.");
+        }
+
+        if (cartItem.Quantity > 1)
+        {
+            cartItem.Quantity--;
+            context.SaveChanges();
+        }
+        else
+        {
+            return BadRequest("Quantity must be greater than zero.");
+        }
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Increase(int cartItemId)
+    {
+        var cartItem = context.CartItems.FirstOrDefault(ci => ci.CartItemId == cartItemId);
+
+        if (cartItem == null)
+        {
+            return NotFound("CartItem not found.");
+        }
+
+        cartItem.Quantity++;
+        context.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult RemoveItem(int Id)
+    {
+        var cartItem = context.CartItems.FirstOrDefault(ci => ci.CartItemId == Id);
+
+        if (cartItem != null)
+        {
+            context.CartItems.Remove(cartItem);
+            context.SaveChanges();
+        }
+        else
+        {
+            return NotFound("CartItem not found.");
+        }
+
+        return RedirectToAction(nameof(Index));
     }
 }

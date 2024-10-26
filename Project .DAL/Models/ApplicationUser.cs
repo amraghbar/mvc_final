@@ -2,7 +2,7 @@
 
 namespace Project_.DAL.Models
 {
-	public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
         public string? City { get; set; }
         public string? Gender { get; set; }
