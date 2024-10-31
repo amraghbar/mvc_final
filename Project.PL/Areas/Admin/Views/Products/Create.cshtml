@@ -7,10 +7,10 @@
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Create </h3>
+            <h3 class="card-title">Create</h3>
         </div>
 
-        <form id="Featureds" asp-controller="InspiredProducts" asp-action="Create" enctype="multipart/form-data">
+        <form id="Featureds" asp-controller="Products" asp-action="Create" enctype="multipart/form-data">
             <div class="card-body">
                 @if (!ViewData.ModelState.IsValid)
                 {
@@ -20,11 +20,12 @@
                 }
 
                 <div class="form-group">
-                    <label asp-for="Name_Product "></label>
-                    <input asp-for="Name_Product " class="form-control" placeholder="Enter name" />
-                    <span asp-validation-for="Name_Product " class="text-danger"></span> <!-- رسالة الخطأ هنا -->
+                    <label asp-for="Name_Product"></label>
+                    <input asp-for="Name_Product" id="Name_Product" class="form-control" placeholder="Enter name" />
+                    <span asp-validation-for="Name_Product" class="text-danger"></span>
                 </div>
-               
+
+
                 <div class="form-group">
                     <img src="#" id="imagePreview" style="display:none" width="80px;" />
                 </div>
@@ -37,25 +38,23 @@
         </form>
     </div>
     <div class="mt-3">
-        <a asp-controller="InspiredProducts" asp-action="Index" class="btn btn-secondary">Back to Index</a>
+        <a asp-controller="Products" asp-action="Index" class="btn btn-secondary">Back to Index</a>
     </div>
 </div>
+
 @section Js {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-       
-        
         $(document).ready(function () {
             $('#Featureds').on('submit', function (e) {
                 e.preventDefault();
 
-                // Check for empty fields
+                // Validate that required fields are not empty
                 var name = $('#Name_Product').val().trim();
-               ;
 
-                if (!name ) {
+                if (!name) {
                     Swal.fire({
                         toast: true,
                         position: 'top-end',
@@ -76,7 +75,6 @@
                     contentType: false,
                     processData: false,
                     success: function (response) {
-                        // Success Toast
                         Swal.fire({
                             toast: true,
                             position: 'top-end',
@@ -85,16 +83,12 @@
                             showConfirmButton: false,
                             timer: 1000
                         }).then(function () {
-                            // Redirect to Index page after the toast disappears
                             window.location.href = '@Url.Action("Index", "Products")';
                         });
 
-                        // Reset form after success
-                        $('#newProductForm')[0].reset();
-                    }
-                    ,
+                        $('#Featureds')[0].reset();
+                    },
                     error: function (xhr) {
-                        // Error Toast
                         Swal.fire({
                             toast: true,
                             position: 'top-end',
@@ -104,7 +98,6 @@
                             timer: 3000
                         });
 
-                        // Display error summary if available
                         if (xhr.responseJSON && xhr.responseJSON.errors) {
                             var errors = xhr.responseJSON.errors;
                             $('#error-summary').show();
@@ -117,10 +110,9 @@
                             $('#error-summary').html('<p>An unexpected error occurred.</p>');
                         }
                     }
-
                 });
             });
         });
+
     </script>
 }
-

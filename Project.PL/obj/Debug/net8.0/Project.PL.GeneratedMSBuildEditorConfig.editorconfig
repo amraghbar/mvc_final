@@ -390,8 +390,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcUmVzZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/Cart/EmptyCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxFbXB0eUNhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/Cart/_CartPar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxfQ2FydFBhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/Favorites/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmF2b3JpdGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/Favorites/_faverPar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmF2b3JpdGVzXF9mYXZlclBhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/Home/Index.cshtml]
@@ -488,6 +504,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/User/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/USER-Q/Documents/asp/mvc/Project/Project/Project.PL/Views/_ViewImports.cshtml]

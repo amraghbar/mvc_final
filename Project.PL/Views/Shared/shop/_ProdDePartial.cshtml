@@ -55,19 +55,25 @@
                         <p>
                             @product.Description
                         </p>
-                        <div class="product_count">
-                            <label for="qty">Quantity:</label>
-                            <input type="number" name="qty" id="sst" maxlength="12" value="1" min="1" title="Quantity:" class="input-text qty" />
-                            <button onclick="changeQuantity(1)" class="increase items-count" type="button">
-                                <i class="lnr lnr-chevron-up"></i>
-                            </button>
-                            <button onclick="changeQuantity(-1)" class="reduced items-count" type="button">
-                                <i class="lnr lnr-chevron-down"></i>
-                            </button>
-                        </div>
-                        <div class="card_area">
-                            <a class="main_btn" href="javascript:addToCart(@product.Id, document.getElementById('sst').value)">Add to Cart</a>
-                        </div>
+                        <form asp-action="Add" asp-controller="Cart" method="post">
+                            <div class="product_count">
+                                <label for="qty">Quantity:</label>
+                                <input type="number" name="qty" id="sst" maxlength="12" value="1" min="1" title="Quantity:" class="input-text qty" />
+                                <button onclick="changeQuantity(1)" class="increase items-count" type="button">
+                                    <i class="lnr lnr-chevron-up"></i>
+                                </button>
+                                <button onclick="changeQuantity(-1)" class="reduced items-count" type="button">
+                                    <i class="lnr lnr-chevron-down">
+                                        اه
+                                    </i>
+                                </button>
+                            </div>
+                            <div>
+                            </div>
+                            <input type="hidden" name="productId" value="@product.Id" />
+                            <input type="hidden" name="productType" value="@product.GetType().Name" />
+                            <button type="submit" class="main_btn">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -88,20 +94,5 @@ else
         }
     }
 
-    function addToCart(productId, quantity) {
-        $.ajax({
-            url: '@Url.Action("AddToCart", "Cart")',
-            type: 'POST',
-            data: {
-                ProductId: productId,
-                Quantity: quantity
-            },
-            success: function () {
-                alert("Product added to cart!");
-            },
-            error: function () {
-                alert("Error adding product to cart");
-            }
-        });
-    }
+   
 </script>

@@ -1,0 +1,10 @@
+﻿@page
+@model Project_.DAL.Models.Cart
+
+<div class="container">
+    <h1 class="text-center">Your Cart is Empty</h1>
+    <p class="text-center">It looks like you have not added any products to your cart. Start shopping now!</p>
+    <div class="text-center">
+        <a href="@Url.Action("Index", "Products")" class="btn btn-primary">Continue Shopping</a>
+    </div>
+</div>

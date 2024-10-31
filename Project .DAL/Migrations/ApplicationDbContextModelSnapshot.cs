@@ -166,19 +166,12 @@ namespace Project_.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name_Product")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -266,12 +259,14 @@ namespace Project_.DAL.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("CartId");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Carts");
                 });
@@ -302,7 +297,7 @@ namespace Project_.DAL.Migrations
                     b.ToTable("CartItems");
                 });
 
-            modelBuilder.Entity("Project_.DAL.Models.Featured", b =>
+            modelBuilder.Entity("Project_.DAL.Models.Favorite", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -310,157 +305,41 @@ namespace Project_.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Af_Price")
+                    b.Property<string>("ApplicationUserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Be_Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Featureds");
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Favorites");
                 });
 
-            modelBuilder.Entity("Project_.DAL.Models.Inspired", b =>
+            modelBuilder.Entity("Project_.DAL.Models.FavoriteItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("FavoriteItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FavoriteItemId"));
 
-                    b.Property<string>("Af_Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Be_Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Inspireds");
-                });
-
-            modelBuilder.Entity("Project_.DAL.Models.Item", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("FavoriteId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Af_Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Be_Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProductId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("FavoriteItemId");
+
+                    b.HasIndex("FavoriteId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Items");
-                });
-
-            modelBuilder.Entity("Project_.DAL.Models.NewProd", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Af_Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Be_Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("NewProducts");
+                    b.ToTable("FavoriteItems");
                 });
 
             modelBuilder.Entity("Project_.DAL.Models.Offer", b =>
@@ -505,6 +384,11 @@ namespace Project_.DAL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
                     b.Property<string>("ImageName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -522,6 +406,10 @@ namespace Project_.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductBases");
+
+                    b.HasDiscriminator().HasValue("ProductBase");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Project_.DAL.Models.Service", b =>
@@ -592,6 +480,108 @@ namespace Project_.DAL.Migrations
                     b.ToTable("Latests");
                 });
 
+            modelBuilder.Entity("Project_.DAL.Models.Featured", b =>
+                {
+                    b.HasBaseType("Project_.DAL.Models.ProductBase");
+
+                    b.Property<string>("Af_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Be_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("ProductBases", t =>
+                        {
+                            t.Property("Af_Price")
+                                .HasColumnName("Featured_Af_Price");
+
+                            t.Property("Be_Price")
+                                .HasColumnName("Featured_Be_Price");
+                        });
+
+                    b.HasDiscriminator().HasValue("Featured");
+                });
+
+            modelBuilder.Entity("Project_.DAL.Models.Inspired", b =>
+                {
+                    b.HasBaseType("Project_.DAL.Models.ProductBase");
+
+                    b.Property<string>("Af_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Be_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("ProductBases", t =>
+                        {
+                            t.Property("Af_Price")
+                                .HasColumnName("Inspired_Af_Price");
+
+                            t.Property("Be_Price")
+                                .HasColumnName("Inspired_Be_Price");
+                        });
+
+                    b.HasDiscriminator().HasValue("Inspired");
+                });
+
+            modelBuilder.Entity("Project_.DAL.Models.Item", b =>
+                {
+                    b.HasBaseType("Project_.DAL.Models.ProductBase");
+
+                    b.Property<string>("Af_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Be_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductBases", t =>
+                        {
+                            t.Property("Af_Price")
+                                .HasColumnName("Item_Af_Price");
+
+                            t.Property("Be_Price")
+                                .HasColumnName("Item_Be_Price");
+
+                            t.Property("Description")
+                                .HasColumnName("Item_Description");
+                        });
+
+                    b.HasDiscriminator().HasValue("Item");
+                });
+
+            modelBuilder.Entity("Project_.DAL.Models.NewProd", b =>
+                {
+                    b.HasBaseType("Project_.DAL.Models.ProductBase");
+
+                    b.Property<string>("Af_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Be_Price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("NewProd");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -643,10 +633,21 @@ namespace Project_.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Project_.DAL.Models.Cart", b =>
+                {
+                    b.HasOne("Project_.DAL.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Project_.DAL.Models.CartItem", b =>
                 {
                     b.HasOne("Project_.DAL.Models.Cart", "Cart")
-                        .WithMany("CartItem")
+                        .WithMany("CartItems")
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -658,6 +659,36 @@ namespace Project_.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Cart");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Project_.DAL.Models.Favorite", b =>
+                {
+                    b.HasOne("Project_.DAL.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Project_.DAL.Models.FavoriteItem", b =>
+                {
+                    b.HasOne("Project_.DAL.Models.Favorite", "Favorite")
+                        .WithMany("FavoriteItems")
+                        .HasForeignKey("FavoriteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project_.DAL.Models.ProductBase", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Favorite");
 
                     b.Navigation("Product");
                 });
@@ -678,7 +709,12 @@ namespace Project_.DAL.Migrations
 
             modelBuilder.Entity("Project_.DAL.Models.Cart", b =>
                 {
-                    b.Navigation("CartItem");
+                    b.Navigation("CartItems");
+                });
+
+            modelBuilder.Entity("Project_.DAL.Models.Favorite", b =>
+                {
+                    b.Navigation("FavoriteItems");
                 });
 #pragma warning restore 612, 618
         }

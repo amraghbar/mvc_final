@@ -26,11 +26,18 @@
                                     <a asp-action="Details" asp-controller="Users" asp-route-modelName="Inspireds" asp-route-id="@item.Id">
                                         <i class="ti-eye"></i>
                                     </a>
-                                   
-                                <a href="#">
-                                    <i class="ti-heart"></i>
-                                </a>
-                                <a href="#">
+
+                                    <form asp-action="Add" asp-controller="Favorites" method="post" style="display: inline;">
+                                        <input type="hidden" name="productId" value="@item.Id" />
+                                        <input type="hidden" name="productType" value="@item.GetType().Name" />
+                                        <button type="submit" >
+                                            <i class="ti-heart"></i>
+                                        </button>
+                                    </form>
+
+                                    <a asp-action="Add" asp-controller="Cart" method="post">
+                                        <input type="hidden" name="productId" value="@item.Id" />
+                                        <input type="hidden" name="productType" value="@item.GetType().Name" />
                                     <i class="ti-shopping-cart"></i>
                                 </a>
                             </div>

@@ -20,9 +20,12 @@ namespace Project.DAl.Data
 
             modelBuilder.Entity<CartItem>()
                 .HasOne(ci => ci.Product)
-                .WithMany() // إذا لم يكن هناك خاصية مجموعة في ProductBase
+                .WithMany() 
                 .HasForeignKey(ci => ci.ProductId)
-                .OnDelete(DeleteBehavior.Cascade); // أو DeleteBehavior.Restrict حسب الحاجة
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<FavoriteItem>()
+             .HasKey(f => f.FavoriteItemId);
         }
 
 
@@ -40,7 +43,9 @@ namespace Project.DAl.Data
         
         public DbSet<Cart> Carts { get; set; }
         public DbSet<ProductBase> ProductBases { get; set; }
+        public DbSet<FavoriteItem> FavoriteItems { get; set; }
 
+        public DbSet<Favorite> Favorites { get; set; }
 
 
     }

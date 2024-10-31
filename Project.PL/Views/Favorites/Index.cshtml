@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<partial name="_HeadPartial" />
+
+<body>
+    <!--================Header Menu Area =================-->
+    <partial name="_header" />
+
+    <!--================Header Menu Area =================-->
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content d-md-flex justify-content-between align-items-center">
+                    <div class="mb-3 mb-md-0">
+                        <h2>Favorites</h2>
+                        <p>Very us move be blessed multiply night</p>
+                    </div>
+                    <div class="page_link">
+                        <a asp-area="" asp-controller="Favorites" asp-action="Index">Home</a>
+                        <a href="cart.html">Favorites</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <partial name="_faverPar" />
+    <partial name="_footerPartial" />
+
+
+    <partial name="_JsPArial" />
+</body>
+</html>

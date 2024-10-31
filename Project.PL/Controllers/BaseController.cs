@@ -39,11 +39,11 @@ namespace Fruitables.PL.Areas.DashBoard.Controllers
                 return;
             }
             var cart = await dbContext.Carts
-               .Include(c => c.CartItem)
+               .Include(c => c.CartItems)
                .ThenInclude(ci => ci.Product)
                .FirstOrDefaultAsync(c => c.ApplicationUserId == user.Id);
-            var totalPrice = cart.CartItem.Sum(ci => ci.Product.Price * ci.Quantity);
-            int totalProducts = cart.CartItem.Sum(ci => ci.Quantity);
+            var totalPrice = cart.CartItems.Sum(ci => ci.Product.Price * ci.Quantity);
+            int totalProducts = cart.CartItems.Sum(ci => ci.Quantity);
             HttpContext.Session.SetInt32("TotalProduct", totalProducts);
             HttpContext.Session.SetString("TotalPrice", totalPrice.ToString());
             if (HttpContext.Session.GetInt32("TotalProduct") != null)

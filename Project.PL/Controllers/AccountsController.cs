@@ -93,7 +93,7 @@ namespace Project.PL.Controllers
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
             {
                 var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
-                if (result.Succeeded) return RedirectToAction("Index", "Home");
+                if (result.Succeeded) return RedirectToAction("Index", "Users");
             }
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");

@@ -18,123 +18,143 @@ public class CartController : Controller
 
     public async Task<IActionResult> Index()
     {
+        // احصل على المستخدم الحالي
         var user = await userManager.GetUserAsync(User);
-        if (user is null)
+        if (user == null)
         {
             return RedirectToAction("Login", "Accounts");
         }
 
+        // احصل على السلة الخاصة بالمستخدم واسترجع المنتجات الموجودة فيها
         var cart = await context.Carts
-            .Include(c => c.CartItem)
-            .ThenInclude(ci => ci.Product)
+            .Include(c => c.CartItems)
+            .ThenInclude(ci => ci.Product) // تأكد من تضمين المنتج للحصول على بياناته
             .FirstOrDefaultAsync(c => c.ApplicationUserId == user.Id);
 
-        if (cart == null)
+        if (cart == null || cart.CartItems.Count == 0)
         {
-            cart = new Cart { ApplicationUserId = user.Id };
-            context.Carts.Add(cart);
-            await context.SaveChangesAsync();
-        }
+            return RedirectToAction("index", "Users"); 
+                }
 
-        return View(cart);
+        return View(cart); // عرض السلة مع المنتجات
     }
 
-    public async Task<IActionResult> Add(int Id)
+
+    public async Task<IActionResult> Add(int productId, string productType, int qty)
     {
+        // احصل على المستخدم الحالي
         var user = await userManager.GetUserAsync(User);
-        if (user is null)
+        if (user == null)
         {
             return RedirectToAction("Login", "Accounts");
         }
 
-        var product = await context.Featureds.FindAsync(Id);
-        if (product == null)
-        {
-            return NotFound("Product not found.");
-        }
-
+        // تحقق من وجود السلة لهذا المستخدم، وإن لم توجد أنشئ واحدة جديدة
         var cart = await context.Carts
-            .Include(c => c.CartItem)
+            .Include(c => c.CartItems)
             .FirstOrDefaultAsync(c => c.ApplicationUserId == user.Id);
 
         if (cart == null)
         {
-            cart = new Cart { ApplicationUserId = user.Id };
+            cart = new Cart
+            {
+                ApplicationUserId = user.Id
+            };
             context.Carts.Add(cart);
             await context.SaveChangesAsync();
         }
 
-        var cartItem = cart.CartItem.FirstOrDefault(ci => ci.ProductId == Id);
+        // ابحث عن المنتج المطلوب إضافته بناءً على النوع
+        ProductBase product = null;
+
+        if (productType == "Featured")
+        {
+            product = await context.Featureds.FindAsync(productId);
+        }
+        else if (productType == "Inspired")
+        {
+            product = await context.Inspireds.FindAsync(productId);
+        }
+        else if (productType == "NewProd")
+        {
+            product = await context.NewProducts.FindAsync(productId);
+        }
+        else if (productType == "Item")
+        {
+            product = await context.Items.FindAsync(productId);
+        }
+
+        if (product == null)
+        {
+            return NotFound("المنتج غير موجود أو نوعه غير صحيح.");
+        }
+
+        // تحقق من وجود العنصر بالفعل في السلة، إن لم يكن موجودًا قم بإضافته
+        var cartItem = cart.CartItems.FirstOrDefault(ci => ci.ProductId == productId);
         if (cartItem == null)
         {
             cartItem = new CartItem
             {
                 CartId = cart.CartId,
-                ProductId = Id,
-                Quantity = 1
+                ProductId = productId,
+                Quantity = qty // استخدم الكمية المرسلة
             };
             context.CartItems.Add(cartItem);
         }
         else
         {
-            cartItem.Quantity++;
+            cartItem.Quantity = qty; // أضف الكمية المرسلة
+        }
+
+        await context.SaveChangesAsync(); // احفظ التغييرات
+        return RedirectToAction("Index");
+    }
+
+
+
+    public async Task<IActionResult> Decrease(int cartItemId, int newQuantity)
+    {
+        var cartItem = await context.CartItems.FindAsync(cartItemId);
+        if (cartItem != null)
+        {
+            if (newQuantity <= 0) // Optionally, remove item if quantity goes to zero
+            {
+                context.CartItems.Remove(cartItem);
+            }
+            else
+            {
+                cartItem.Quantity = newQuantity;
+                context.CartItems.Update(cartItem);
+            }
+            await context.SaveChangesAsync();
+        }
+        return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> Increase(int cartItemId, int newQuantity)
+    {
+        var cartItem = await context.CartItems.FindAsync(cartItemId);
+        if (cartItem != null)
+        {
+            cartItem.Quantity = newQuantity;
             context.CartItems.Update(cartItem);
+            await context.SaveChangesAsync();
         }
-        await context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(Index));
     }
 
-    public IActionResult Decrease(int cartItemId)
+    public async Task<IActionResult> RemoveItem(int id)
     {
-        var cartItem = context.CartItems.FirstOrDefault(ci => ci.CartItemId == cartItemId);
-
-        if (cartItem == null)
-        {
-            return NotFound("CartItem not found.");
-        }
-
-        if (cartItem.Quantity > 1)
-        {
-            cartItem.Quantity--;
-            context.SaveChanges();
-        }
-        else
-        {
-            return BadRequest("Quantity must be greater than zero.");
-        }
-
-        return RedirectToAction("Index");
-    }
-
-    public IActionResult Increase(int cartItemId)
-    {
-        var cartItem = context.CartItems.FirstOrDefault(ci => ci.CartItemId == cartItemId);
-
-        if (cartItem == null)
-        {
-            return NotFound("CartItem not found.");
-        }
-
-        cartItem.Quantity++;
-        context.SaveChanges();
-
-        return RedirectToAction("Index");
-    }
-
-    public IActionResult RemoveItem(int Id)
-    {
-        var cartItem = context.CartItems.FirstOrDefault(ci => ci.CartItemId == Id);
-
+        var cartItem = await context.CartItems.FindAsync(id);
         if (cartItem != null)
         {
             context.CartItems.Remove(cartItem);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
-        else
-        {
-            return NotFound("CartItem not found.");
-        }
-
         return RedirectToAction(nameof(Index));
     }
+
+
+
+
 }

@@ -1,0 +1,122 @@
+﻿@using Project_.DAL.Models
+@model Project_.DAL.Models.Cart
+
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            decimal subtotal = 0; // متغير لتخزين قيمة الإجمالي الفرعي
+                        }
+
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <img src="~/Files/Images/@item.Product.ImageName" width="200px" alt="@item.Product.Name" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">@item.Product.Name</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">
+                                        @if (item.Product is Featured featuredProduct)
+                                        {
+                                            @($"${featuredProduct.Af_Price}")
+                                        }
+                                        else if (item.Product is NewProd newProd)
+                                        {
+                                            @($"${newProd.Af_Price}")
+                                        }
+                                        else if (item.Product is Inspired inspiredProduct)
+                                        {
+                                            @($"${inspiredProduct.Af_Price}")
+                                        }
+                                        else if (item.Product is Item Items)
+                                        {
+                                            @($"${Items.Af_Price}")
+                                        }
+                                        else
+                                        {
+                                            @($"${item.Product.Price}")
+                                        }
+                                    </p>
+                                </td>
+                                <td>
+                                    <div class="product_count">
+                                        <form asp-controller="Cart" asp-action="UpdateQuantity" method="post">
+                                            <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                            <input type="text" name="quantity" value="@item.Quantity" readonly />
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">
+                                        @{
+                                            decimal priceValue = item.Product switch
+                                            {
+                                                Featured fp => decimal.TryParse(fp.Af_Price, out var featuredPrice) ? featuredPrice : 0,
+                                                NewProd np => decimal.TryParse(np.Af_Price, out var newProdPrice) ? newProdPrice : 0,
+                                                Inspired ip => decimal.TryParse(ip.Af_Price, out var inspiredPrice) ? inspiredPrice : 0,
+                                                Item ip => decimal.TryParse(ip.Af_Price, out var Items) ? Items : 0,
+
+                                                _ => item.Product.Price
+                                            };
+
+                                            decimal totalPrice = priceValue * item.Quantity;
+                                            subtotal += totalPrice; // إضافة السعر الإجمالي لكل عنصر إلى الإجمالي الفرعي
+                                        }
+                                        @($"${totalPrice.ToString("N2")}")
+                                    </p>
+                                </td>
+                                <td>
+                                    <a asp-controller="Cart" asp-action="RemoveItem" asp-route-id="@item.CartItemId" class="btn btn-md rounded-circle bg-light border mt-4" title="Remove Item">
+                                        <i class="fa fa-trash text-danger"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                        <tr>
+                            <td colspan="3"></td>
+                            <td>
+                                <h5>Subtotal</h5>
+                            </td>
+                            <td>
+                                <h5>@($"${subtotal:N2}")</h5> <!-- عرض الإجمالي الفرعي -->
+                            </td>
+                        </tr>
+
+                        <tr class="out_button_area">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="checkout_btn_inner">
+                                    <a asp-action="index" asp-controller="Shops" class="main_btn">Continue Shopping</a>
+                                    <a class="main_btn" href="#">Proceed to checkout</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

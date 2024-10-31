@@ -22,10 +22,11 @@ namespace Project.PL.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var products = context.Products.ToList(); 
+            var products = context.Products.ToList();
             var productVMs = mapper.Map<IEnumerable<ProductsVM>>(products);
             return View(productVMs);
         }
+
 
         [HttpGet]
         public IActionResult Create()
@@ -35,6 +36,7 @@ namespace Project.PL.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+      
         public IActionResult Create(ProductsFormVM vm)
         {
             if (!ModelState.IsValid)
@@ -44,7 +46,6 @@ namespace Project.PL.Areas.Admin.Controllers
 
             var product = mapper.Map<Product>(vm);
 
-
             try
             {
                 context.Products.Add(product);
@@ -52,14 +53,17 @@ namespace Project.PL.Areas.Admin.Controllers
             }
             catch (DbUpdateException ex)
             {
-                var innerException = ex.InnerException;
-                // Log the inner exception message for further analysis
-                Console.WriteLine(innerException?.Message);
-                throw; // Optionally rethrow the exception after logging
+                // Log the error for detailed debugging
+                var innerException = ex.InnerException?.Message;
+                Console.WriteLine(innerException);
+
+                ModelState.AddModelError("", "There was an issue saving the product. Please try again.");
+                return View(vm);
             }
 
             return RedirectToAction(nameof(Index));
         }
+
 
         [HttpGet]
         public IActionResult Details(int id)

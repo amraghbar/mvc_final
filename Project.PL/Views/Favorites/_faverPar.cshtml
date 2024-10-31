@@ -1,0 +1,82 @@
+﻿@using Project_.DAL.Models
+@model Project_.DAL.Models.Favorite
+
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Handle</th>
+
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+
+                        @foreach (var item in Model.FavoriteItems)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <img src="~/Files/Images/@item.Product.ImageName" width="200px" alt="@item.Product.Name" />
+                                        </div>
+                                    </div>
+                                <td>
+                                    <p class="mb-0 mt-4">@item.Product.Name</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">
+                                        @if (item.Product is Featured featuredProduct)
+                                        {
+                                            @($"${featuredProduct.Af_Price}")
+                                        }
+                                        else if (item.Product is NewProd newProd)
+                                        {
+                                            @($"${newProd.Af_Price}")
+                                        }
+                                        else if (item.Product is Inspired inspiredProduct)
+                                        {
+                                            @($"${inspiredProduct.Af_Price}")
+                                        }
+                                        else if (item.Product is Item Items)
+                                        {
+                                            @($"${Items.Af_Price}")
+                                        }
+                                        else
+                                        {
+                                            @($"${item.Product.Price}")
+                                        }
+                                    </p>
+                                </td>
+                                
+                                <td>
+                                    <a asp-controller="Cart" asp-action="RemoveItem" asp-route-id="@item.FavoriteItemId" class="btn btn-md rounded-circle bg-light border mt-4" title="Remove Item">
+                                        <i class="fa fa-trash text-danger"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                        <tr class="out_button_area">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="checkout_btn_inner">
+                                    <a asp-action="index" asp-controller="Shops" class="main_btn">Continue Shopping</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

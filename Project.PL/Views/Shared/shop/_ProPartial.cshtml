@@ -11,15 +11,22 @@
                             <div class="col-12 col-lg-3 col-md-4 col-sm-6 mb-4">
                                 <div class="single-product">
                                     <div class="product-img">
-                                        <img class="img-fluid w-50" src="~/files/images/@item.ImageName" alt="@item.Name" />
+                                        <img class="img-fluid" src="~/files/images/@item.ImageName" alt="@item.Name" />
                                         <div class="p_icon">
                                             <a asp-action="Details" asp-controller="Shops" asp-route-id="@item.Id">
                                                 <i class="ti-eye"></i>
                                             </a>
-                                            <a href="#">
-                                                <i class="ti-heart"></i>
-                                            </a>
-                                            <a href="#">
+                                            <form asp-action="Add" asp-controller="Favorites" method="post" style="display: inline;">
+                                                <input type="hidden" name="productId" value="@item.Id" />
+                                                <input type="hidden" name="productType" value="@item.GetType().Name" />
+                                                <button type="submit" style="background: none; border: none; padding: 0;">
+                                                    <i class="ti-heart"></i>
+                                                </button>
+                                            </form>
+
+                                            <a asp-action="Add" asp-controller="Cart" method="post">
+                                                <input type="hidden" name="productId" value="@item.Id" />
+                                                <input type="hidden" name="productType" value="@item.GetType().Name" />
                                                 <i class="ti-shopping-cart"></i>
                                             </a>
                                         </div>

@@ -17,69 +17,57 @@ namespace Project.PL.Controllers
             this.context = context;
             this.mapper = mapper;
         }
+
         public IActionResult Index()
         {
             var serviceVM = context.Services.ToList();
             var featuredProducts = context.Featureds.ToList();
-            var newProd=context.NewProducts.ToList();
-            var Inspireds = context.Inspireds.ToList();
-            var latestBlog =context.Latests.ToList();
-            var Off=context.Offerss.ToList();
+            var newProd = context.NewProducts.ToList();
+            var inspireds = context.Inspireds.ToList();
+            var latestBlog = context.Latests.ToList();
+            var off = context.Offerss.ToList();
+
             var combinedViewModel = new CombinedViewModel
             {
                 FeaturedProducts = featuredProducts,
                 Services = serviceVM,
                 NewProducts = newProd,
-                Inspireds = Inspireds,
-                latestBlo = latestBlog,
-                Offerss = Off,
-
+                Inspireds = inspireds,
+                LatestBlogs = latestBlog,
+                Offers = off,
             };
 
             return View(combinedViewModel);
         }
 
-
-
         public IActionResult Details(string modelName, int id)
         {
-            object? product = null;
+            ProductBase product = null; // Use ProductBase as the type
 
-            if (modelName == "Inspireds")
+            switch (modelName)
             {
-                product = context.Inspireds.FirstOrDefault(p => p.Id == id);
-            }
-            else if (modelName == "Featureds")
-            {
-                product = context.Featureds.FirstOrDefault(p => p.Id == id);
-            }
-            else if (modelName == "NewProducts")
-            {
-                product = context.NewProducts.FirstOrDefault(p => p.Id == id);
-            }
-            else
-            {
-                return NotFound();
+                case "Inspireds":
+                    product = context.Inspireds.FirstOrDefault(p => p.Id == id);
+                    break;
+                case "Featureds":
+                    product = context.Featureds.FirstOrDefault(p => p.Id == id);
+                    break;
+                case "NewProducts":
+                    product = context.NewProducts.FirstOrDefault(p => p.Id == id);
+                    break;
+                default:
+                    return NotFound();
             }
 
             if (product == null)
             {
-                return NotFound(); // تحقق من أن المنتج موجود
+                return NotFound(); // Check if the product exists
             }
 
             ViewBag.Product = product;
-            ViewBag.ModelName = modelName; // تمرير نوع النموذج أيضا لعرضه في العرض أو إرساله لاحقًا
+            ViewBag.ModelName = modelName; // Pass the model type for use in the view
 
             return View();
         }
-
-
-
-
-
-
-
-
-
     }
 }
