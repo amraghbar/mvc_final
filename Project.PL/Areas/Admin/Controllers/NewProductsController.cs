@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Project.DAl.Data;
 using Project.PL.Areas.Admin.ViewModels.NewProduct;
@@ -8,6 +9,7 @@ using Project_.DAL.Models;
 namespace Project.PL.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class NewProductsController : Controller
     {
         private readonly ApplicationDbContext context;

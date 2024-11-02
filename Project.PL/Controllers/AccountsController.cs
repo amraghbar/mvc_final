@@ -28,6 +28,7 @@ namespace Project.PL.Controllers
         public IActionResult Register() => View();
 
         [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> Register(RegisterVM model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -47,6 +48,14 @@ namespace Project.PL.Controllers
                 return View(model);
             }
 
+            // Check if the "User" role exists, and create it if it doesn't
+            if (!await roleManager.RoleExistsAsync("User"))
+            {
+                await roleManager.CreateAsync(new IdentityRole("User"));
+            }
+
+            // Assign the "User" role to the new user
+            await userManager.AddToRoleAsync(user, "User");
 
             var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
             var confirmEmailLink = Url.Action("ConfirmEmail", "Accounts", new { UserId = user.Id, Token = token }, protocol: HttpContext.Request.Scheme);
@@ -70,6 +79,7 @@ namespace Project.PL.Controllers
 
             return RedirectToAction("Login");
         }
+
 
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {

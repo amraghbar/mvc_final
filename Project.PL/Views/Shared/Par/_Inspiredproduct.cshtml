@@ -35,11 +35,13 @@
                                         </button>
                                     </form>
 
-                                    <a asp-action="Add" asp-controller="Cart" method="post">
+                                    <form asp-action="Add" asp-controller="Cart" method="post">
                                         <input type="hidden" name="productId" value="@item.Id" />
                                         <input type="hidden" name="productType" value="@item.GetType().Name" />
-                                    <i class="ti-shopping-cart"></i>
-                                </a>
+                                        <button type="submit" >
+                                            <i class="ti-shopping-cart"></i>
+                                        </button>
+                                    </form>
                             </div>
                         </div>
                         <div class="product-btm">

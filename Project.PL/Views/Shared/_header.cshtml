@@ -44,19 +44,22 @@
                                         <li class="nav-item">
                                             <a class="nav-link" asp-action="Index" asp-controller="Shops">Shop Category</a>
                                         </li>
-                                     
                                     </ul>
                                 </li>
-                              
                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                </li>
+
+                                <!-- زر يظهر فقط للمستخدمين الذين لديهم صلاحية "Admin" -->
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="Admin" asp-controller="Service" asp-action="Index">Admin Panel</a>
+                                    </li>
+                                }
 
                                 <partial name="_LoginPartial" />
-
                             </ul>
                         </div>
+
 
                         <div class="col-lg-5 pr-0">
                             <ul class="nav navbar-nav navbar-right right_nav pull-right">

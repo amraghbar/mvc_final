@@ -24,7 +24,11 @@
                 <div class="mt-3">
                     <h2>$@firstProduct.Af_Price</h2> 
                 </div>
-                <a href="#" class="main_btn">Add to cart</a>
+               <form asp-action="Add" asp-controller="Cart" method="post">
+    <input type="hidden" name="productId" value="@firstProduct.Id" />
+    <input type="hidden" name="productType" value="@firstProduct.GetType().Name" />
+    <button type="submit" class="main_btn">Add to cart</button>
+</form>
             }
         </div>
     </div>
@@ -48,13 +52,17 @@
                                 <input type="hidden" name="productType" value="@product.GetType().Name" />
                                  <button type="submit" >
                                             <i class="ti-heart"></i>
-                                        </button
+                                        </button>
 </form>
 
-                                  <a asp-action="Add" asp-controller="Cart" method="post">
-                                        <input type="hidden" name="productId" value="@product.Id" />
-                                        <input type="hidden" name="productType" value="@product.GetType().Name" />
-                                    <i class="ti-shopping-cart"></i></a>
+                                 
+                                    <form asp-action="Add" asp-controller="Cart" method="post">
+    <input type="hidden" name="productId" value="@product.Id" />
+    <input type="hidden" name="productType" value="@product.GetType().Name" />
+    <button type="submit" >
+                                            <i class="ti-shopping-cart"></i>
+                                        </button>
+</form>
                             </div>
                         </div>
                         <div class="product-btm">

@@ -1,39 +1,33 @@
 ﻿@{
     Layout = null; // إلغاء تخطيط الصفحة
 }
-@model UserProfileViewModel
+<!DOCTYPE html>
+<html lang="en">
+<partial name="_HeadPartial" />
+<body>
+    <partial name="_header" />
 
-<h2>Welcome, @Model.UserName!</h2>
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content d-md-flex justify-content-between align-items-center">
+                    <div class="mb-3 mb-md-0">
+                        <h2>Profile </h2>
+                        <p>Very us move be blessed multiply night</p>
+                    </div>
+                    <div class="page_link">
+                        <a href="#">Home</a>
+                        <a href="#">Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <partial name="_ProfilePartial" />
 
-<h3>Your Profile Details</h3>
-<p>Email: @Model.Email</p>
+    <partial name="_footerPartial" />
 
-<h3>Your Cart Items</h3>
-@if (Model.CartItems.Any())
-{
-    <ul>
-        @foreach (var item in Model.CartItems)
-        {
-            <li>@item.Product.Name - Quantity: @item.Quantity</li>
-        }
-    </ul>
-}
-else
-{
-    <p>Your cart is empty.</p>
-}
 
-<h3>Your Favorite Items</h3>
-@if (Model.FavoriteItems.Any())
-{
-    <ul>
-        @foreach (var item in Model.FavoriteItems)
-        {
-            <li>@item.Product.Name</li>
-        }
-    </ul>
-}
-else
-{
-    <p>You have no favorite items.</p>
-}
+    <partial name="_JsPArial" />
+</body>
+</html>

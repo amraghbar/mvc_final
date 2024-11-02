@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Project.DAl.Data;
 using Project.PL.Areas.Admin.ViewModels.LatestBlogs;
@@ -9,7 +10,7 @@ namespace Project.PL.Areas.Admin.Controllers
 {
     [Area("Admin")]
 
-  
+    [Authorize(Roles = "Admin")]
     public class LatestBlogsController : Controller
     {
         private readonly ApplicationDbContext context;

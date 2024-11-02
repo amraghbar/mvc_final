@@ -1,0 +1,59 @@
+﻿@model UserProfileViewModel
+@{
+    Layout = null; // إلغاء تخطيط الصفحة
+}
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <h2>Welcome, @Model.UserName!</h2>
+
+            <h3>Your Profile Details</h3>
+            <p>Email: @Model.Email</p>
+
+            <h3>Your Cart Items</h3>
+            @if (Model.CartItems.Any())
+            {
+                <ul>
+
+                    @foreach (var item in Model.CartItems)
+                    {
+                        <li>@item.Product.Name - Quantity: @item.Quantity</li>
+                    }
+                    <a asp-action="index" asp-controller="Cart" class="main_btn btn-lg rounded-pill shadow">
+                        Carts page
+                    </a>
+                </ul>
+            }
+            else
+            {
+                <p>Your cart is empty.</p>
+            }
+
+            <h3>Your Favorite Items</h3>
+            @if (Model.FavoriteItems.Any())
+            {
+                <ul>
+
+                    @foreach (var item in Model.FavoriteItems)
+                    {
+
+                        <li>@item.Product.Name</li>
+                    }
+                    <a asp-action="Index" asp-controller="Favorites" class="main_btn btn-lg rounded-pill shadow">
+                        Favorite Items Page
+                    </a>
+
+                </ul>
+            }
+            else
+            {
+                <p>You have no favorite items.</p>
+            }
+
+
+
+
+</div>
+    </div>
+ 
+    </section>>
