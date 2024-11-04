@@ -1,0 +1,24 @@
+﻿@model List<UserRolesViewModel>
+@section Header {
+
+    <h2>Users Management</h2>
+
+}
+<h2>Manage Users</h2>
+<table>
+    <tr>
+        <th>User Name</th>
+        <th>Roles</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>@string.Join(", ", user.Roles)</td>
+            <td>
+                <a asp-controller="Users"  asp-action="ManageRoles" asp-route-userId="@user.UserId">Edit Roles</a>
+            </td>
+        </tr>
+    }
+</table>

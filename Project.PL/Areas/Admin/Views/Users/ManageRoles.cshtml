@@ -1,0 +1,44 @@
+﻿@model Project.PL.Areas.Admin.ViewModels.ManageUserRolesViewModel
+
+@section Header {
+    <h2>Users Edit Role</h2>
+}
+
+<h2>Manage Roles for @Model.UserName</h2>
+
+<!-- Displaying the user name -->
+<p><strong>User:</strong> @Model.UserName</p>
+
+<form asp-controller="Users" asp-action="UpdateUserRoles" method="post">
+    <input type="hidden" asp-for="UserId" />
+    <input type="hidden" asp-for="UserName" /> <!-- Added hidden input for UserName -->
+
+    <table>
+        <tr>
+            <th>Role</th>
+            <th>Assigned</th>
+        </tr>
+        @for (int i = 0; i < Model.Roles.Count; i++)
+        {
+            <tr>
+                <td>@Model.Roles[i].RoleName</td>
+                <td>
+                    <input type="checkbox" asp-for="Roles[i].IsSelected" />
+                    <input type="hidden" asp-for="Roles[i].RoleName" value="@Model.Roles[i].RoleName" />
+                </td>
+            </tr>
+        }
+    </table>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="text-danger">
+            @foreach (var error in ViewData.ModelState["Roles"].Errors)
+            {
+                <div>@error.ErrorMessage</div>
+            }
+        </div>
+    }
+
+    <button type="submit">Update Roles</button>
+</form>
