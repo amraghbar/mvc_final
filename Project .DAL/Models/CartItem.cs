@@ -20,14 +20,6 @@ namespace Project_.DAL.Models
         public int Quantity { get; set; }
 
         public Cart Cart { get; set; }
-        public ProductBase Product
-        {
-            get; set;
-
-
-
-
-
-        }
+        public ProductBase Product {get; set;}
     }
 }

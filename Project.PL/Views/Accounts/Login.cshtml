@@ -1,48 +1,54 @@
-﻿ @model LoginVM
+﻿@model LoginVM
 
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Accouts.cshtml";
 }
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <div class="wrapper" style="background-image: url('@Url.Content("~/Form/images/bg-registration-form-1.jpg")');">
-	<div class="inner">
-		<form asp-action="Login" asp-controller="Accounts" method="post">
-			<h3>Login </h3>
-			
+    <div class="inner">
+        <form asp-action="Login" asp-controller="Accounts" method="post">
+            <h3>Login</h3>
 
-			<div class="form-wrapper">
-				<input asp-for="Email" placeholder="Email Address" class="form-control">
-				<i class="zmdi zmdi-email"></i>
-			</div>
+            <div class="form-wrapper">
+                <input asp-for="Email" placeholder="Email Address" class="form-control">
+                <i class="zmdi zmdi-email"></i>
+            </div>
 
-			<div class="form-wrapper">
-				<input asp-for="Password" placeholder="Password" class="form-control">
-				<i class="zmdi zmdi-lock"></i>
-			</div>
-			<div class="form-group">
-				
-				<input asp-for="RememberMe" placeholder="Password" class="agree-term">
-				<label asp-for="RememberMe" class="label-agree-term">RememberMe</label>
-			</div>
-			<button>
-				Login
-				<i class="zmdi zmdi-arrow-right"></i>
-			</button>
-			<div class="mt-3">
-				<a class="nav-link text-dark" asp-area="" asp-action="Register" asp-controller="Accounts">Don't have an account? </a>
-
-			</div>
-			<div class="mt-3">
-				<a class="nav-link text-dark" asp-area="" asp-action="ForgetPassword" asp-controller="Accounts">Don't ForgetPassword ?  </a>
-
-			</div>
-
-		</form>
-		<div class="image-holder">
-			<img src="~/Form/images/registration-form-1.jpg" />
-		</div>
-	</div>
+            <div class="form-wrapper">
+                <input asp-for="Password" placeholder="Password" class="form-control">
+                <i class="zmdi zmdi-lock"></i>
+            </div>
+            <div class="form-group">
+                <input asp-for="RememberMe" class="agree-term">
+                <label asp-for="RememberMe" class="label-agree-term">Remember Me</label>
+            </div>
+            <button>
+                Login
+                <i class="zmdi zmdi-arrow-right"></i>
+            </button>
+            <div class="mt-3">
+                <a class="nav-link text-dark" asp-area="" asp-action="Register" asp-controller="Accounts">Don't have an account?</a>
+            </div>
+            <div class="mt-3">
+                <a class="nav-link text-dark" asp-area="" asp-action="ForgetPassword" asp-controller="Accounts">Forgot your password?</a>
+            </div>
+        </form>
+        <div class="image-holder">
+            <img src="~/Form/images/registration-form-1.jpg" />
+        </div>
+    </div>
 </div>
 
-
+<script>
+    $(document).ready(function () {
+        var loginError = '@TempData["LoginError"]';
+        if (loginError) {
+            toastr.error(loginError, "Login Error");
+        }
+    });
+</script>

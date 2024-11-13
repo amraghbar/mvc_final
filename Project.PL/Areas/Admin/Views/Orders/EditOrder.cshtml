@@ -1,0 +1,18 @@
+﻿@model OrderViewModel
+
+@section Header {
+    <h2>Edit Order</h2>
+}
+<form method="post" asp-action="EditOrder" asp-controller="Orders">
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+    <input type="hidden" name="OrderId" value="@Model.OrderId" />
+
+    <div class="form-group">
+        <label for="Status">Order Status</label>
+        <input type="text" class="form-control" id="Status" name="Status" value="@Model.Status" required />
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

@@ -9,5 +9,7 @@ namespace Project.PL.ViewModel
         public string Email { get; set; }
         public List<CartItem> CartItems { get; set; } // يمثل العناصر في سلة الشراء
         public List<FavoriteItem> FavoriteItems { get; set; }
+        public List<Order> Orders { get; set; }
+
     }
 }

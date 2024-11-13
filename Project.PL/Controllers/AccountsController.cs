@@ -107,22 +107,34 @@ namespace Project.PL.Controllers
         }
 
         public IActionResult Login() => View();
+       
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginVM model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            var user = await userManager.FindByEmailAsync(model.Email);
-            if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
+            try
             {
-                var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
-                if (result.Succeeded) return RedirectToAction("Index", "Users");
-            }
+                var user = await userManager.FindByEmailAsync(model.Email);
+                if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
+                {
+                    var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
+                    if (result.Succeeded) return RedirectToAction("Index", "Users");
+                }
 
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-            return View(model);
+                TempData["LoginError"] = "Invalid email or password.";
+                return RedirectToAction("Login");
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["LoginError"] = "An unexpected error occurred. Please contact support.";
+                return RedirectToAction("Login");
+            }
         }
+
+
+
 
         public async Task<IActionResult> Logout()
         {

@@ -1,59 +1,96 @@
 ﻿@model UserProfileViewModel
 @{
-    Layout = null; // إلغاء تخطيط الصفحة
+    Layout = null;
 }
-<section class="cart_area">
+<section class="profile-area py-5">
     <div class="container">
-        <div class="cart_inner">
-            <h2>Welcome, @Model.UserName!</h2>
+        <div class="card shadow border-0">
+            <div class="card-header bg-success text-white text-center">
+                <h2 class="mb-0">Welcome, @Model.UserName!</h2>
+            </div>
+            <div class="card-body">
+                <p class="mb-4"><strong>Email:</strong> @Model.Email</p>
 
-            <h3>Your Profile Details</h3>
-            <p>Email: @Model.Email</p>
+             
 
-            <h3>Your Cart Items</h3>
-            @if (Model.CartItems.Any())
-            {
-                <ul>
-
-                    @foreach (var item in Model.CartItems)
+                <!-- عرض العناصر المفضلة -->
+                <div>
+                    <h3 class="mb-3">Your Favorite Items</h3>
+                    @if (Model.FavoriteItems.Any())
                     {
-                        <li>@item.Product.Name - Quantity: @item.Quantity</li>
+                        <ul class="list-group mb-3">
+                            @foreach (var item in Model.FavoriteItems)
+                            {
+                                <li class="list-group-item">@item.Product.Name</li>
+                            }
+                        </ul>
+                        <a asp-action="Index" asp-controller="Favorites" class="btn btn-success btn-lg w-100">
+                            View Favorite Items Page
+                        </a>
                     }
-                    <a asp-action="index" asp-controller="Cart" class="main_btn btn-lg rounded-pill shadow">
-                        Carts page
-                    </a>
-                </ul>
-            }
-            else
-            {
-                <p>Your cart is empty.</p>
-            }
-
-            <h3>Your Favorite Items</h3>
-            @if (Model.FavoriteItems.Any())
-            {
-                <ul>
-
-                    @foreach (var item in Model.FavoriteItems)
+                    else
                     {
-
-                        <li>@item.Product.Name</li>
+                        <p class="text-muted">You have no favorite items.</p>
                     }
-                    <a asp-action="Index" asp-controller="Favorites" class="main_btn btn-lg rounded-pill shadow">
-                        Favorite Items Page
-                    </a>
+                </div>
 
-                </ul>
-            }
-            else
-            {
-                <p>You have no favorite items.</p>
-            }
+                <!-- عرض الطلبات -->
+                <div class="mt-4">
+                    <h3 class="mb-3">Your Orders</h3>
+                    @if (Model.Orders != null && Model.Orders.Any())
+                    {
+                        <ul class="list-group mb-3">
+                            @foreach (var order in Model.Orders)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5>Order #@order.OrderId</h5>
+                                        <p>Status: <span class="badge badge-info">@order.OrderStatus</span></p>
+                                        <p>Total Amount: @($"${order.TotalAmount:N2}")</p>
+                                    </div>
+                                    <a asp-action="Details" asp-controller="Order" asp-route-id="@order.OrderId" class="btn btn-secondary btn-sm">
+                                        View Order Details
+                                    </a>
 
+                                    <form method="post" action="@Url.Action("Delete", "Order", new { id = order.OrderId })" style="display:inline;">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this order?');">Delete</button>
+                                    </form>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-muted">You have no orders yet.</p>
+                    }
+                </div>
 
-
-
-</div>
+            </div>
+        </div>
     </div>
- 
-    </section>>
+</section>
+
+<style>
+    .profile-area {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .card-header {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .list-group-item {
+        border: 1px solid #dee2e6;
+    }
+
+    .btn {
+        border-radius: 50px;
+    }
+
+    .badge-info {
+        background-color: #17a2b8;
+    }
+</style>

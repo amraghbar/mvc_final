@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Project.DAl.Data;
 using Project.PL.Areas.Admin.ViewModels;
 using Project_.DAL.Models;
 
@@ -10,15 +12,18 @@ public class UsersController : Controller
 {
     private readonly UserManager<ApplicationUser> userManager;
     private readonly RoleManager<IdentityRole> roleManager;
+    private readonly ApplicationDbContext context;
 
-    public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
     {
         this.userManager = userManager;
         this.roleManager = roleManager;
-    }
+            this.context = context;
 
-    // عرض قائمة المستخدمين
-    public async Task<IActionResult> Index()
+        }
+
+        // عرض قائمة المستخدمين
+        public async Task<IActionResult> Index()
     {
         var users = userManager.Users.ToList();
         var userRolesViewModel = new List<UserRolesViewModel>();
@@ -105,6 +110,7 @@ public class UsersController : Controller
             return RedirectToAction(nameof(Index));
         }
 
+     
 
     }
 

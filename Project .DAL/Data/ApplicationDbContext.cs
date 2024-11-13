@@ -38,11 +38,16 @@ namespace Project.DAl.Data
         public DbSet<Offer> Offerss { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Item> Items { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<ProductBase> ProductBases { get; set; }
         public DbSet<FavoriteItem> FavoriteItems { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderItem> OrderItems { get; set; }
+
+
 
         // طريقة SeedData
         public static async Task SeedData(IServiceProvider serviceProvider)

@@ -1,0 +1,39 @@
+﻿@model Project.PL.Areas.Admin.ViewModels.ChangeOrderStatusViewModel
+
+@{
+    ViewData["Title"] = "تغيير حالة الطلب";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="ChangeOrderStatus" method="post">
+    <div class="form-group">
+        <label for="UserName">اسم المستخدم:</label>
+        <input type="text" class="form-control" id="UserName" value="@Model.UserName" disabled />
+    </div>
+
+    <div class="form-group">
+        <label for="OrderId">رقم الطلب:</label>
+        <input type="text" class="form-control" id="OrderId" value="@Model.OrderId" disabled />
+    </div>
+
+    <div class="form-group">
+        <label for="CurrentStatus">الحالة الحالية:</label>
+        <input type="text" class="form-control" id="CurrentStatus" value="@Model.CurrentStatus" disabled />
+    </div>
+
+    <div class="form-group">
+        <label for="SelectedStatus">اختر الحالة الجديدة:</label>
+        <select class="form-control" id="SelectedStatus" name="SelectedStatus" required>
+           
+        </select>
+    </div>
+
+    <input type="hidden" name="OrderId" value="@Model.OrderId" />
+    <input type="hidden" name="UserName" value="@Model.UserName" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">تحديث الحالة</button>
+        <a href="@Url.Action("Index", "Users")" class="btn btn-secondary">إلغاء</a>
+    </div>
+</form>

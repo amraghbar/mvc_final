@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Project.DAl.Data;
+using Project.PL.Areas.Admin.Services;
+using Project.PL.Areas.Admin.ViewModels;
+using Project.PL.Areas.Admin.ViewModels.Service;
 using Project.PL.Mapping;
 using Project_.DAL.Models;
 using System.Reflection;
@@ -41,6 +44,8 @@ public class Program
             options.Cookie.HttpOnly = true; // جعل الكوكيز غير متاحة للجافاسكريبت
             options.Cookie.IsEssential = true; // الضرورة لجعل الكوكيز متاحة للطلبات
         });
+
+        builder.Services.AddScoped<IOrderService, OrderService>();
 
         var app = builder.Build();
 

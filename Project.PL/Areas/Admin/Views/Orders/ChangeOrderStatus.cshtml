@@ -1,0 +1,28 @@
+﻿@model IEnumerable<OrderViewModel>
+@section Header {
+    <h2>Users Management</h2>
+}
+<h2>Orders for User</h2>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                <td>@order.Status</td>
+                <td>
+                    <a asp-controller="Orders" asp-action="EditOrder" asp-route-orderId="@order.OrderId" asp-route-userId="@order.UserId" class="btn btn-info btn-sm">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

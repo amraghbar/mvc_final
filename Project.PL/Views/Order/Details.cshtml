@@ -1,0 +1,81 @@
+﻿@model Project_.DAL.Models.Order
+@{
+    Layout = null; // إلغاء تخطيط الصفحة
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<partial name="_HeadPartial" />
+<body>
+    <partial name="_header" />
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content d-md-flex justify-content-between align-items-center">
+                    <div class="mb-3 mb-md-0">
+                        <h2>Order Details </h2>
+                        <p>Very us move be blessed multiply night</p>
+                    </div>
+                    <div class="page_link">
+                        <a href="#">Home</a>
+                        <a href="#">Order/Order Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- الجدول الأول لعرض المنتجات -->
+            <div class="col-md-6 mb-4">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderItem)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="~/Files/Images/@item.ProductBase.ImageName" width="100" height="100" alt="@item.ProductBase.Name" class="img-fluid" />
+                                </td>
+                                <td>@item.ProductBase.Name</td>
+                                <td>@item.Quantity</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- الجدول الثاني لعرض ملخص الطلب -->
+            <div class="col-md-6 mb-4">
+                <div class="order-summary p-4 border rounded">
+                    <h3>Order Summary</h3>
+                    <p><strong>Order ID:</strong> @Model.OrderId</p>
+                    <p><strong>Order Date:</strong> @Model.OrderDate.ToString("yyyy-MM-dd")</p>
+                    <p><strong>Total Amount:</strong> @Model.TotalAmount.ToString("C2")</p>
+                    <p><strong>Status:</strong> @Model.OrderStatus</p>
+                    <p><strong>Shipping Address:</strong> @Model.Address</p>
+                    <p><strong>City:</strong> @Model.City</p>
+                    <p><strong>Phone:</strong> @Model.mobile</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- زر العودة -->
+        <div class="mt-4 text-center">
+            <a href="@Url.Action("Profile", "User")" class="btn btn-primary">Back to Order List</a>
+        </div>
+    </div>
+
+
+    <partial name="_footerPartial" />
+    <partial name="_JsPArial" />
+</body>
+</html>

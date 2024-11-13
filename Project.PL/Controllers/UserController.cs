@@ -12,7 +12,7 @@ public class UserController : Controller
 {
     private readonly UserManager<ApplicationUser> userManager;
     private readonly ApplicationDbContext context;
-
+    
     public UserController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
     {
         this.userManager = userManager;
@@ -27,27 +27,34 @@ public class UserController : Controller
             return RedirectToAction("Login", "Accounts");
         }
 
-        var cartItems = await context.Carts
-            .Where(c => c.ApplicationUserId == user.Id)
-            .Include(c => c.CartItems) // تأكد من تضمين العناصر
-            .ThenInclude(ci => ci.Product) // إذا كنت تريد تضمين تفاصيل المنتج أيضًا
-            .ToListAsync();
+        // استعلام السلة
+       
 
+        // استعلام العناصر المفضلة
         var favoriteItems = await context.Favorites
             .Where(f => f.ApplicationUserId == user.Id)
             .Include(f => f.FavoriteItems) // تأكد من تضمين العناصر
-            .ThenInclude(fi => fi.Product) // إذا كنت تريد تضمين تفاصيل المنتج أيضًا
+            .ThenInclude(fi => fi.Product) // تضمين تفاصيل المنتج
             .ToListAsync();
 
+        // استعلام الطلبات
+        var orders = await context.Orders
+            .Where(o => o.ApplicationUserId == user.Id)
+            .Include(o => o.OrderItem) // تضمين عناصر الطلب
+            .ThenInclude(oi => oi.ProductBase) // تضمين تفاصيل المنتج
+            .ToListAsync();
+
+        // بناء النموذج الذي سيتم تمريره إلى العرض
         var viewModel = new UserProfileViewModel
         {
             Id = user.Id,
             UserName = user.UserName,
             Email = user.Email,
-            CartItems = cartItems.SelectMany(c => c.CartItems).ToList(),
-            FavoriteItems = favoriteItems.SelectMany(f => f.FavoriteItems).ToList()
+            FavoriteItems = favoriteItems.SelectMany(f => f.FavoriteItems).ToList(),
+            Orders = orders // إضافة الطلبات إلى النموذج
         };
 
         return View(viewModel);
     }
+
 }

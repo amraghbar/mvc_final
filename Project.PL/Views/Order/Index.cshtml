@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Project_.DAL.Models.Order>
+@{
+    Layout = null; // إلغاء تخطيط الصفحة
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<partial name="_HeadPartial" />
+<body>
+    <partial name="_header" />
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content d-md-flex justify-content-between align-items-center">
+                    <div class="mb-3 mb-md-0">
+                        <h2>Orders</h2>
+                        <p>All your order details at a glance</p>
+                    </div>
+                    <div class="page_link">
+                        <a href="#">Home</a>
+                        <a href="#">Orders</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5">
+        <table class="table table-striped table-bordered text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Date</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.OrderId</td>
+                        <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                        <td>@order.TotalAmount.ToString("C2")</td>
+                        <td>@order.OrderStatus</td>
+                        <td>
+                            <!-- زر عرض تفاصيل الطلب -->
+                            <a href="@Url.Action("Details", "Order", new { id = order.OrderId })" class="btn btn-info btn-sm">View Details</a>
+
+                            <!-- زر حذف الطلب -->
+                            <form method="post" action="@Url.Action("Delete", "Order", new { id = order.OrderId })" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this order?');">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <partial name="_footerPartial" />
+    <partial name="_JsPArial" />
+</body>
+</html>
