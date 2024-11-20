@@ -160,18 +160,34 @@ namespace Project.PL.Controllers
             {
                 var token = await userManager.GeneratePasswordResetTokenAsync(user);
                 var resetLink = Url.Action("ResetPassword", "Accounts", new { email = model.Email, Token = token }, protocol: HttpContext.Request.Scheme);
+
+                // البريد الإلكتروني بتصميم HTML
                 var email = new Email
                 {
-                    Subject = "Reset Password",
+                    Subject = "Reset Your Password",
+
                     Recivers = model.Email,
-                    Body = resetLink,
+                    Body = $@"
+            <html>
+            <body style='font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;'>
+                <div style='max-width: 600px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);'>
+                    <h2>Password Reset Request</h2>
+                    <p>We received a request to reset your password. To proceed, please click the button below:</p>
+                    <a href='{resetLink}' style='background-color: #4CAF50; color: white; padding: 14px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px;'>Reset Password</a>
+                    <p>If you did not request a password reset, please ignore this email.</p>
+                    <p>Regards,<br>Your Website Team</p>
+                </div>
+            </body>
+            </html>"
                 };
 
-                EmailSe.SendEmail(email); // Assuming this is the email service you're using
+                // إرسال البريد الإلكتروني
+                EmailSe.SendEmail(email);
             }
 
-            return View(); // Optionally, show a message to the user
+            return View(); // يمكنك عرض رسالة للمستخدم بعد إرسال البريد
         }
+
 
         public IActionResult ResetPassword(string email, string token)
         {

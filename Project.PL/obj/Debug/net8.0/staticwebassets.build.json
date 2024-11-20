@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W/Yp0YnFC2F1m9g5IePykSMkUyoqAehWtCViMYL+FJg=",
+  "Hash": "Y0Ku9UuvrAyExEAT1tLY6wDNGG6pMiYQ7xJyaPqoDCs=",
   "Source": "Project.PL",
   "BasePath": "_content/Project.PL",
   "Mode": "Default",
@@ -40620,25 +40620,6 @@
       "OriginalItemSpec": "wwwroot\\files\\images\\29a6976f-5ff9-4a27-ae3b-e4d9bc2de8ce437718423_3638120539763641_4350410523037037473_n.jpg"
     },
     {
-      "Identity": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\2b89573d-f0f3-4589-a2d5-c669005ccb89n4.jpg",
-      "SourceId": "Project.PL",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\",
-      "BasePath": "_content/Project.PL",
-      "RelativePath": "files/images/2b89573d-f0f3-4589-a2d5-c669005ccb89n4.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\files\\images\\2b89573d-f0f3-4589-a2d5-c669005ccb89n4.jpg"
-    },
-    {
       "Identity": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\2f454c8c-796f-4e50-8925-9a15762df105f-p-3.jpg",
       "SourceId": "Project.PL",
       "SourceType": "Discovered",
@@ -41055,6 +41036,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\files\\images\\5362b123-47d3-46a5-bbb9-1d67ccbf2e69bitcoin.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\567d553d-53e5-4b1e-927f-d738a3049bb0356690176_3443544042554626_580642100587855772_n.jpg",
+      "SourceId": "Project.PL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\",
+      "BasePath": "_content/Project.PL",
+      "RelativePath": "files/images/567d553d-53e5-4b1e-927f-d738a3049bb0356690176_3443544042554626_580642100587855772_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\files\\images\\567d553d-53e5-4b1e-927f-d738a3049bb0356690176_3443544042554626_580642100587855772_n.jpg"
     },
     {
       "Identity": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\56e5c7a0-cfca-4b31-a997-e73470b04363truck.png",

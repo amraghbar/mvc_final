@@ -9145,10 +9145,6 @@
       "PackagePath": "staticwebassets\\files\\images\\29a6976f-5ff9-4a27-ae3b-e4d9bc2de8ce437718423_3638120539763641_4350410523037037473_n.jpg"
     },
     {
-      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\2b89573d-f0f3-4589-a2d5-c669005ccb89n4.jpg",
-      "PackagePath": "staticwebassets\\files\\images\\2b89573d-f0f3-4589-a2d5-c669005ccb89n4.jpg"
-    },
-    {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\2f454c8c-796f-4e50-8925-9a15762df105f-p-3.jpg",
       "PackagePath": "staticwebassets\\files\\images\\2f454c8c-796f-4e50-8925-9a15762df105f-p-3.jpg"
     },
@@ -9235,6 +9231,10 @@
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\5362b123-47d3-46a5-bbb9-1d67ccbf2e69bitcoin.png",
       "PackagePath": "staticwebassets\\files\\images\\5362b123-47d3-46a5-bbb9-1d67ccbf2e69bitcoin.png"
+    },
+    {
+      "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\567d553d-53e5-4b1e-927f-d738a3049bb0356690176_3443544042554626_580642100587855772_n.jpg",
+      "PackagePath": "staticwebassets\\files\\images\\567d553d-53e5-4b1e-927f-d738a3049bb0356690176_3443544042554626_580642100587855772_n.jpg"
     },
     {
       "Id": "C:\\Users\\USER-Q\\Documents\\asp\\mvc\\Project\\Project\\Project.PL\\wwwroot\\files\\images\\56e5c7a0-cfca-4b31-a997-e73470b04363truck.png",
